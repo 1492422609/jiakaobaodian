@@ -1,0 +1,90 @@
+{
+	
+	//引入easycom组件
+	"easycom": {
+			"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+		},
+	
+	
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "驾考系统"
+			}
+		}
+	   
+        ,{
+            "path" : "pages/my/my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人中心",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/test/test",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/library/library",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/history/history",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mock/mock",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	
+	"tabBar": {
+	        "color": "#cdcdcd",
+	        "selectedColor": "#39cffc",
+	        "borderStyle": "black",
+	        "backgroundColor": "#ffffff",
+	        "list": [{
+	                "pagePath": "pages/index/index",
+	                "iconPath": "https://z3.ax1x.com/2021/07/23/Ws94ts.png",
+	                "selectedIconPath": "https://z3.ax1x.com/2021/07/23/Ws9T10.png",
+	                "text": "首页"
+	            }, {
+	                "pagePath": "pages/my/my",
+	                "iconPath": "https://z3.ax1x.com/2021/07/23/Ws95hn.png",
+	                "selectedIconPath": "https://z3.ax1x.com/2021/07/23/Ws9opq.png",
+	                "text": "个人中心"
+	            }
+	        ]
+	    },
+	
+	
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
