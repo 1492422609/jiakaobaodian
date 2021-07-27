@@ -21,23 +21,25 @@
 				<u-tabs-swiper ref="tabs" :list="list" :is-scroll="false" bar-height="6"></u-tabs-swiper>
 			</view>
 			<view class="line"></view>
-			<view class="second">
-				
+			<view class="second">				
 				<view class="second_left">
 					<view class="second_left_1">
-						<image src="https://z3.ax1x.com/2021/07/23/WrtZRI.png" mode="" class="second_left_photo">
-						</image>
-						<view class="second_left_text">
-							题库学习
-						</view>
+						<navigator url="../question_bank/question_bank">
+							<image src="https://z3.ax1x.com/2021/07/23/WrtZRI.png" mode="" class="second_left_photo">
+							</image>
+							<view class="second_left_text">
+								题库学习
+							</view>
+						</navigator>
 					</view>
 					<view class="second_left_1">
-						<image src="https://z3.ax1x.com/2021/07/23/WrLCd0.png" mode="" class="second_left_photo">
-							
-						</image>
-						<view class="second_left_text">
-							错题收藏
-						</view>
+						<navigator url="../collection/collection">
+							<image src="https://z3.ax1x.com/2021/07/23/WrLCd0.png" mode="" class="second_left_photo">
+							</image>
+							<view class="second_left_text">
+								错题收藏
+							</view>
+						</navigator>
 					</view>
 					<view class="second_left_1">
 						<image src="https://z3.ax1x.com/2021/07/23/WrL9Zq.png" mode="" class="second_left_photo">
@@ -48,15 +50,16 @@
 					</view>
 				</view>
 				<view class="second_middle">
-					<view>
-						<image src="https://z3.ax1x.com/2021/07/23/WrwKUO.gif" mode="" class="round">
-						<view class="test">
-							考试模拟
+					<navigator url="../mock/mock">
+						<view>
+							<image src="https://z3.ax1x.com/2021/07/23/WrwKUO.gif" mode="" class="round">
+							<view class="test">
+								考试模拟
+							</view>
+							</image>
+							<image src="https://z3.ax1x.com/2021/07/23/WrwuVK.png" mode="widthFix" class="paper"></image>	
 						</view>
-						</image>
-						<image src="https://z3.ax1x.com/2021/07/23/WrwuVK.png" mode="widthFix" class="paper"></image>
-						
-					</view>
+					</navigator>			
 				</view>
 				<view class="second_right">
 					<view class="second_left_1">
@@ -68,12 +71,14 @@
 						</view>
 					</view>
 					<view class="second_left_1">
-						<image src="https://z3.ax1x.com/2021/07/23/WrLSLn.png" mode="" class="second_left_photo">
-						</image>
-						<view class="second_left_text2">
-							<image src="https://z3.ax1x.com/2021/07/23/WsPFx0.png" mode="widthFix" class="vip"></image>
-							专项练习
-						</view>
+						<navigator url="../classify/classify">
+							<image src="https://z3.ax1x.com/2021/07/23/WrLSLn.png" mode="" class="second_left_photo">
+							</image>
+							<view class="second_left_text2">
+								<image src="https://z3.ax1x.com/2021/07/23/WsPFx0.png" mode="widthFix" class="vip"></image>
+								专项练习
+							</view>
+						</navigator>						
 					</view>
 					<view class="second_left_1">
 						<navigator url="../library/library">
@@ -361,6 +366,7 @@
 	.second_left_1 {
 		margin-left: 30%;
 		margin-top: 20%;
+		margin-bottom: 30rpx;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;

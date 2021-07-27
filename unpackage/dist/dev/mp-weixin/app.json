@@ -1,7 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/test/test",
+    "pages/library/library",
+    "pages/history/history",
+    "pages/mock/mock",
+    "pages/question_bank/question_bank",
+    "pages/collection/collection",
+    "pages/classify/classify"
   ],
   "subPackages": [],
   "window": {
@@ -9,6 +16,26 @@
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#cdcdcd",
+    "selectedColor": "#39cffc",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "https://z3.ax1x.com/2021/07/23/Ws94ts.png",
+        "selectedIconPath": "https://z3.ax1x.com/2021/07/23/Ws9T10.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "https://z3.ax1x.com/2021/07/23/Ws95hn.png",
+        "selectedIconPath": "https://z3.ax1x.com/2021/07/23/Ws9opq.png",
+        "text": "个人中心"
+      }
+    ]
   },
   "usingComponents": {}
 }

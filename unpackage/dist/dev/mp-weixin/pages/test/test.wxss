@@ -1,0 +1,8 @@
+
+.bg{
+	width: 250rpx;
+	height: 550rpx;
+	background-color: #0000FF
+}
+
+

@@ -1,0 +1,42 @@
+
+.total{
+	width: 750rpx;
+	height: 1250rpx;
+	background-color: #F2F5FF;
+}
+.line{
+	margin-top: 30rpx;
+	height: 1rpx;
+	width: 90%;
+	margin-left: 5%;
+	background-color: #CECECE;
+}
+.row_text{
+	width: 180rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	border-radius: 20rpx;
+	background-color: white;
+	text-align: center;
+	font-size: 30rpx;
+	font-weight: bold;
+	margin-top: 30rpx;
+	margin-left: 50rpx;
+}
+.row_2{
+	margin-left:380rpx ;
+	font-size: 35rpx;
+}
+.row_1{
+	font-size:35rpx ;
+	font-weight: 600;
+}
+.row_header{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-top: 30rpx;
+	margin-left: 50rpx;
+}
+
+
