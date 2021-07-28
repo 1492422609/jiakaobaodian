@@ -6,7 +6,7 @@
 }
 .line{
 	margin-top: 30rpx;
-	height: 1rpx;
+	height: 3rpx;
 	width: 90%;
 	margin-left: 5%;
 	background-color: #CECECE;
@@ -20,8 +20,14 @@
 	text-align: center;
 	font-size: 30rpx;
 	font-weight: bold;
-	margin-top: 30rpx;
-	margin-left: 50rpx;
+	
+	margin-top: 40rpx;
+	/* argin-left: 50rpx; */
+}
+.row_3{
+	padding: 0 50rpx;
+	display:grid;
+	grid-template-columns: 225rpx 225rpx 225rpx;
 }
 .row_2{
 	margin-left:380rpx ;
@@ -35,7 +41,7 @@
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	margin-top: 30rpx;
+	padding-top: 30rpx;
 	margin-left: 50rpx;
 }
 

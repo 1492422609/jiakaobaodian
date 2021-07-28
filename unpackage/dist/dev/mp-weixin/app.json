@@ -8,7 +8,13 @@
     "pages/mock/mock",
     "pages/question_bank/question_bank",
     "pages/collection/collection",
-    "pages/classify/classify"
+    "pages/classify/classify",
+    "pages/grades/grades",
+    "pages/instructions/instructions",
+    "pages/agreement/agreement",
+    "pages/skill/skill",
+    "pages/test2/test2",
+    "pages/test3/test3"
   ],
   "subPackages": [],
   "window": {
@@ -37,5 +43,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap95.json"
 }

@@ -1,4 +1,7 @@
 
+.swiper-box{
+	height: 600rpx;
+}
 .button{
 	font-size: 35rpx;
 	-webkit-box-pack: center;

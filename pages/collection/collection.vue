@@ -1,5 +1,19 @@
 <template>
 	<view>
+		<view class="navBarBox">
+			<view class="">
+				<view class="">
+					<navigator url="../index/index"> 
+					<view class="" style="height: 100rpx;">
+						<
+					</view>
+					</navigator>
+				</view>
+			</view>		
+		</view>
+	
+		
+		
 		<view class="header">
 			<view class="avater">
 				<image src="https://z3.ax1x.com/2021/07/26/WWcPET.png" mode="widthFix" style="width: 150rpx;"></image>
@@ -36,7 +50,11 @@
 	export default {
 		data() {
 			return {
-				
+				indexSearchBar:'padding-top: '+uni.getSystemInfoSync().statusBarHeight+'px',
+				// 状态栏高度
+				statusBarHeight: 'padding-top: '+uni.getSystemInfoSync().statusBarHeight+'px',
+				// 导航栏高度
+				navBarHeight: 82
 			}
 		},
 		methods: {
@@ -46,6 +64,22 @@
 </script>
 
 <style>
+	.navBarBox{background-color: #0000FF}
+	.navBarBox .statusBar {}
+	.navBarBox .navBar {
+		padding: 3rpx 50rpx;
+		padding-bottom: 8rpx;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+	.navBarBox .navBar .logo {
+		width: 82rpx;
+		height: 82rpx;
+		margin-right: 10rpx;
+	}
+
 	.middle_text3{
 		margin-left: 10rpx;
 		font-size: 35rpx;

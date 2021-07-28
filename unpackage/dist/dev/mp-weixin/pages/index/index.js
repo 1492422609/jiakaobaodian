@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uTabsSwiper: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 112))
+      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 156))
     }
   }
 } catch (e) {
@@ -350,6 +350,132 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -363,8 +489,14 @@ var _default =
       {
         name: '科目四' }],
 
-      pop: true,
-      bianhao: '1' };
+      pop: false,
+      bianhao: '1',
+      // 内容
+      current: 0,
+      // 下标
+      swiperCurrent: 0,
+      // 偏移量
+      dx: 0 };
 
   },
   onLoad: function onLoad() {
@@ -376,6 +508,20 @@ var _default =
     },
     pop1: function pop1() {
       this.pop = false;
+    },
+    // tab栏下标切换
+    change: function change(index) {
+      this.swiperCurrent = index;
+    },
+    // tab栏偏移量切换
+    transition: function transition(_ref) {var dx = _ref.detail.dx;
+      this.$refs.tabs.setDx(dx);
+    },
+    // tab栏内容切换
+    animationfinish: function animationfinish(_ref2) {var current = _ref2.detail.current;
+      console.log(current);
+      this.swiperCurrent = current;
+      this.current = current;
     } } };exports.default = _default;
 
 /***/ }),

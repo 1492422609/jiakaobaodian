@@ -60,18 +60,22 @@
 		<view class="dierlan">
 			<view class="photos">
 				<view class="block">
-					<image src="https://z3.ax1x.com/2021/07/22/W06hKs.png" mode="" class="photos_1"></image>
-					<view class="photos_2">
-						用户协议
-					</view>
+					<navigator url="../agreement/agreement">
+						<image src="https://z3.ax1x.com/2021/07/22/W06hKs.png" mode="" class="photos_1"></image>
+						<view class="photos_2">
+							用户协议
+						</view>
+					</navigator>
 				</view>
 			</view>
 			<view class="photos">
 				<view class="block">
-					<image src="https://z3.ax1x.com/2021/07/22/W06L24.png" mode="" class="photos_1"></image>
-					<view class="photos_2">
-						用户隐私
-					</view>
+					<navigator url="../agreement/agreement">
+						<image src="https://z3.ax1x.com/2021/07/22/W06L24.png" mode="" class="photos_1"></image>
+						<view class="photos_2">
+							用户隐私
+						</view>
+					</navigator>
 				</view>
 			</view>
 			<view class="photos" @click="customer">

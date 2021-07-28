@@ -1,0 +1,59 @@
+
+.line{
+	margin-top:20rpx ;
+	width: 95%;
+	margin-left: 2.5%;
+	height: 3rpx;
+	background-color:#F2F5FF
+}
+.num{
+	font-size: 35rpx;
+	width: 50rpx;
+	height: 50rpx;
+	border-radius: 50%;
+	background-color: #2C5DFE;
+	text-align: center;
+	color: white;
+	/* margin-left: 30rpx; */
+}
+.middle_left{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.middle_1{
+	margin-top: 30rpx;
+}
+.middle{
+	margin-top:100rpx
+}
+.header_qualified{
+	position: relative;
+	/* margin-left: 40%; */
+	margin-top: 45rpx;
+	font-size: 30rpx;
+	color: white;
+	text-align: center;
+}
+.header_grades{
+	position: relative;
+	/* margin-left: 43%; */
+	margin-top: -250rpx;
+	font-size: 90rpx;
+	color: #2CC020;
+	text-align: center;
+}
+.header_photo{
+	width: 350rpx;
+	margin-top: 40rpx;
+}
+.header_bg{
+	text-align: center;
+	position: relative;
+	background-image: url(/static/grades.png);
+	width: 100%;
+	height: 400rpx;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+

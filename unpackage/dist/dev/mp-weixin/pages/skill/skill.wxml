@@ -1,0 +1,1 @@
+<view><view class="header">技巧学习包含18个技巧，共656道题目，帮助学员快速记忆</view><view class="middle"><block wx:for="{{skill}}" wx:for-item="skil" wx:for-index="__i0__"><view><view><view class="middle_bg"><view class="middle_bulb"></view>{{''+skil.name+''}}</view></view></view></block></view></view>

@@ -1,5 +1,6 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "芜湖",
   "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

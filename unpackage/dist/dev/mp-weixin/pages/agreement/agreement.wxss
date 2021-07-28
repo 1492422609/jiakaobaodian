@@ -1,0 +1,12 @@
+
+.text{
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 30rpx;
+}
+.header{
+	margin-top: 20rpx;
+	font-size: 35rpx;
+	text-align: center;
+}
+
