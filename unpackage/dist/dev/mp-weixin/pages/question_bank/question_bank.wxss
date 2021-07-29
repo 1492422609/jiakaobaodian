@@ -1,4 +1,28 @@
 
+.box_2{
+	width: 20rpx;
+	height: 20rpx;
+	margin-left: 5rpx;
+	margin-top: 5rpx;
+	background-color: white;
+}
+.box_1{
+	width: 30rpx;
+	height: 30rpx;
+	/* line-height: 40rpx; */
+	border-radius:3rpx ;
+	background-color: #0CAF00;
+	margin-right: 10rpx;
+}
+.circulal{
+	width: 225rpx;
+	height: 225rpx;
+	line-height: 225rpx;
+	border-radius: 50%;
+	background-color: #000000;
+	color:white;
+	text-align: center;
+}
 .test1{
 	width: 60%;
 	height: 85rpx;
@@ -13,7 +37,7 @@
 }
 .middle_1{
 	width: 90%;
-	height: 400rpx;
+	height: 300rpx;
 	/* background-color: #0000FF; */
 	margin-left: 5%;
 	margin-top: 60rpx;

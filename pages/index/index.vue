@@ -89,134 +89,127 @@
 				</swiper-item>
 				<swiper-item class="swiper-item">
 					<scroll-view scroll-y style="height: 100%;width: 100%;">
-						<view class="page-box">
-							<view>
-								我是内容二
+						<view class="video_head">
+							<view class="video_head_left">
+								<image src="https://z3.ax1x.com/2021/07/28/WoQijg.png" mode="widthFix" style="width: 30rpx;margin-right: 15rpx;margin-bottom: -5rpx;"></image>
+								视频教程
 							</view>
-							<view>
-								我是内容二
+							<view class="video_head_right">
+								换车型
 							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
-							</view>
-							<view>
-								我是内容二
+						</view>
+						<view class="video_middle">
+							<view class="video_middle_1" v-for="sk in skill">
+								<image src="https://z3.ax1x.com/2021/07/28/Wo3zqg.png" mode="widthFix"style="width: 320rpx;border-radius: 20rpx"></image>
+							    <view style="margin-top: 5rpx;">
+							    	{{sk.name}}
+							    </view>
 							</view>
 						</view>
 					</scroll-view>
 				</swiper-item>
 				<swiper-item class="swiper-item">
 					<scroll-view scroll-y style="height: 100%;width: 100%;">
-						<view class="page-box">
-							我是内容三
+						<view class="video_head">
+							<view class="video_head_left">
+								<image src="https://z3.ax1x.com/2021/07/28/WoQijg.png" mode="widthFix" style="width: 30rpx;margin-right: 15rpx;margin-bottom: -5rpx;"></image>
+								视频教程
+							</view>
+							<view class="video_head_right">
+								换车型
+							</view>
+						</view>
+						<view class="video_middle">
+							<view class="video_middle_1" v-for="sk in skill">
+								<image src="https://z3.ax1x.com/2021/07/28/Wo3zqg.png" mode="widthFix"style="width: 320rpx;border-radius: 20rpx"></image>
+							    <view style="margin-top: 5rpx;">
+							    	{{sk.name}}
+							    </view>
+							</view>
 						</view>
 					</scroll-view>
 				</swiper-item>
 				<swiper-item class="swiper-item">
 					<scroll-view scroll-y style="height: 100%;width: 100%;">
-						<view class="page-box">
-							我是内容四
+						<view class="second">
+							<view class="second_left">
+								<view class="second_left_1">
+									<navigator url="../question_bank/question_bank">
+										<image src="https://z3.ax1x.com/2021/07/23/WrtZRI.png" mode="" class="second_left_photo">
+										</image>
+										<view class="second_left_text">
+											题库学习
+										</view>
+									</navigator>
+								</view>
+								<view class="second_left_1">
+									<navigator url="../collection/collection">
+										<image src="https://z3.ax1x.com/2021/07/23/WrLCd0.png" mode="" class="second_left_photo">
+										</image>
+										<view class="second_left_text">
+											错题收藏
+										</view>
+									</navigator>
+								</view>
+								<view class="second_left_1">
+									<navigator url="../instructions/instructions">
+										<image src="https://z3.ax1x.com/2021/07/23/WrL9Zq.png" mode="" class="second_left_photo">
+										</image>
+										<view class="second_left_text">
+											学前须知
+										</view>
+									</navigator>
+								</view>
+							</view>
+							<view class="second_middle">
+								<navigator url="../mock/mock">
+									<view>
+										<image src="https://z3.ax1x.com/2021/07/23/WrwKUO.gif" mode="" class="round">
+										<view class="test">
+											考试模拟
+										</view>
+										</image>
+										<image src="https://z3.ax1x.com/2021/07/23/WrwuVK.png" mode="widthFix" class="paper"></image>	
+									</view>
+								</navigator>			
+							</view>
+							<view class="second_right">
+								<view class="second_left_1">
+									<navigator url="../library/library">
+									<image src="https://z3.ax1x.com/2021/07/23/WrLPoV.png" mode="" class="second_left_photo">
+									</image>
+									<view class="second_left_text2">
+										<image src="https://z3.ax1x.com/2021/07/23/WsPFx0.png" mode="widthFix" class="vip"></image>
+										技巧学习
+									</view>
+									</navigator>
+								</view>
+								<view class="second_left_1">
+									<navigator url="../classify/classify">
+										<image src="https://z3.ax1x.com/2021/07/23/WrLSLn.png" mode="" class="second_left_photo">
+										</image>
+										<view class="second_left_text2">
+											<image src="https://z3.ax1x.com/2021/07/23/WsPFx0.png" mode="widthFix" class="vip"></image>
+											专项练习
+										</view>
+									</navigator>						
+								</view>
+								<view class="second_left_1">
+									<navigator url="../library/library">
+									<image src="https://z3.ax1x.com/2021/07/23/WrLFiT.png" mode="" class="second_left_photo">
+									</image>
+									<view class="second_left_text2">
+										<image src="https://z3.ax1x.com/2021/07/23/WsPFx0.png" mode="widthFix" class="vip"></image>
+										高频题库
+									</view>
+									</navigator>
+								</view>
+							</view>
 						</view>
 					</scroll-view>
 				</swiper-item>
 			</swiper>
-						
-			
-			
-			
-			
-			
-			
+		
 			
 			<view class="line"></view>
 			<view class="footer">
@@ -317,6 +310,23 @@
 		    		</view>
 		    	</view>
 		    </view>  
+		    <view class="prompt" v-show="prom" @click="prompt">
+				<view class="protect">
+					<view class="prom_photo">
+						<view class="prom_text">
+							<view class="prom_text2">
+								由于各教练员教学方式不尽相
+							</view>
+							<view class="prom_text2">
+								同请根据本地教练员指导学习
+							</view>
+						</view>
+						<view class="prom_text3">
+							我知道了
+						</view>
+					</view>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -334,7 +344,17 @@
 				}, {
 					name: '科目四',
 				}],
-				pop:false,
+				skill:[{
+					name:'侧方位停车'
+				},{
+					name:'倒车入库'
+				},{
+					name:'曲线行驶'
+				},{
+					name:'直角转弯'
+				}],
+				pop:true,
+				prom:false,
 				bianhao:'1',
 				// 内容
 				current: 0,
@@ -345,7 +365,9 @@
 			}
 		},
 		onLoad() {
-
+                 // #ifdef APP-PLUS
+				plus.screen.lockOrientation('landscape-primary');
+				// #endif
 		},
 		methods: {
 			radio(e){
@@ -364,17 +386,82 @@
 			},
 			// tab栏内容切换
 			animationfinish({ detail: { current } }) {
-				console.log(current)
+				// console.log(current)
 				this.swiperCurrent = current;
 				this.current = current;
+			},
+			prompt(){
+				if(this.prom===false){
+					this.prom=true
+				}else this.prom=false	
 			}
 		}
 	}
 </script>
 
 <style>
-	.swiper-box{
+	.prom_text3{
+		width: 80%;
+		height: 70rpx;
+		line-height: 70rpx;
+		margin-top: 100rpx;
+		margin-left: 10%;
+		border-radius: 10rpx;
+		color: white;
+		background-color: #2C5DFE
+	}
+	.prom_text2{
+		margin-top: 20rpx;
+		/* letter-spacing: inherit; */
+	}
+	.prom_text{
+		width: 75%;
+		margin-left: 12.5%;
+		padding-top: 300rpx;
+	}
+	.prom_photo{
+		width: 70%;
 		height: 600rpx;
+		/* text-align: center; */
+		margin-top: 300rpx;
+		margin-left: 15%;
+		background-image: url("https://z3.ax1x.com/2021/07/28/Wo29jU.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		text-align: center;
+	}
+	.video_middle_1{
+		margin-top: 40rpx;
+		margin-left: 40rpx;
+	}
+	.video_middle{
+		/* margin-top: 50rpx; */
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.video_head{
+		display: flex;
+		justify-content: space-between;
+	}
+	.video_head_right{
+		margin-top: 30rpx;
+		margin-right: 30rpx;
+		width: 140rpx;
+		height: 45rpx;
+		line-height: 50rpx;
+		border-radius: 30rpx;
+		background-color: #0000FF;
+		color: white;
+		text-align: center;
+	}
+	.video_head_left{
+		margin-top: 10rpx;
+		height: 80rpx;
+		line-height: 80rpx;
+		margin-left: 30rpx;
+	}
+	.swiper-box{
+		height: 650rpx;
 	}
 	.button{
 		font-size: 35rpx;
@@ -461,7 +548,7 @@
 		position: absolute;
 		margin-top: -85rpx;
 		margin-left: 35rpx;
-		font-size: 5rpx
+		font-size: 25rpx
 	}
 	.footer_photo{
 		margin-left: 16rpx;
@@ -471,7 +558,7 @@
 	}
 	.line{
 		width: 100%;
-		height: 50rpx;
+		height: 30rpx;
 		background-color: #F1F1F1;
 	}
 	.test{

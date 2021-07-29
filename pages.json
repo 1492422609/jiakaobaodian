@@ -23,15 +23,7 @@
             }
             
         }
-        ,{
-            "path" : "pages/test/test",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
+       
         ,{
             "path" : "pages/library/library",
             "style" :                                                                                    
@@ -68,11 +60,12 @@
             }
             
         }
-        ,{
+        ,
+		{
             "path" : "pages/collection/collection",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "芜湖",
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false,
 				"navigationStyle":"custom"
             }
@@ -150,13 +143,13 @@
 	        "backgroundColor": "#ffffff",
 	        "list": [{
 	                "pagePath": "pages/index/index",
-	                "iconPath": "https://z3.ax1x.com/2021/07/23/Ws94ts.png",
-	                "selectedIconPath": "https://z3.ax1x.com/2021/07/23/Ws9T10.png",
-	                "text": "首页"
+	                "iconPath":"static/首页（未选）.png",
+	                "selectedIconPath": "static/首页.png",
+	                "text": "驾考11"
 	            }, {
 	                "pagePath": "pages/my/my",
-	                "iconPath": "https://z3.ax1x.com/2021/07/23/Ws95hn.png",
-	                "selectedIconPath": "https://z3.ax1x.com/2021/07/23/Ws9opq.png",
+	                "iconPath": "static/我的（未选）.png",
+	                "selectedIconPath": "static/我的.png",
 	                "text": "个人中心"
 	            }
 	        ]

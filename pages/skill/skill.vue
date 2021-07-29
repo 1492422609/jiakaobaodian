@@ -8,7 +8,7 @@
 				<view>
 					<view class="middle_bg">
 						<view class="middle_bulb">
-							
+							damm
 						</view>
 					{{skil.name}}
 				</view>

@@ -29,46 +29,17 @@
 	    	超车前需从前车左侧超越，以下说法正确的是 ？
 	    </view>
 		<view class="answer_total">
-			<view class="answer">
+			<view class="answer" v-for="qut in question">
 				<view class="answer_pad">
 					<view class="answer_num">
-						A
+					    {{qut.id}}
 					</view>
 					<view class="answer_text">
-						我国实行左侧通行原则
+				        {{qut.que}}
 					</view>
 				</view>
 			</view>
-			<view class="answer">
-				<view class="answer_pad">
-					<view class="answer_num">
-						A
-					</view>
-					<view class="answer_text">
-						我国实行左侧通行原则
-					</view>
-				</view>
-			</view>
-			<view class="answer">
-				<view class="answer_pad">
-					<view class="answer_num">
-						A
-					</view>
-					<view class="answer_text">
-						我国实行左侧通行原则
-					</view>
-				</view>
-			</view>
-			<view class="answer">
-				<view class="answer_pad">
-					<view class="answer_num">
-						A
-					</view>
-					<view class="answer_text">
-						我国实行左侧通行原则
-					</view>
-				</view>
-			</view>
+			
 				
 		</view>
 		<view class="jinnang">
@@ -81,7 +52,7 @@
 		</view>
 	    <view class="footer">
 	    	<view class="line"></view>
-			<view class="" style="display: flex;">
+			<view  style="display: flex; padding-bottom: 20rpx;">
 				<view class="collection">
 					<image src="https://z3.ax1x.com/2021/07/26/WWSz1H.png" mode="widthFix" class="footer_photo"></image>
 					<view class="footer_text">
@@ -104,7 +75,7 @@
 						0
 					</view>
 				</view>
-				<view class="footer_question">
+				<view class="footer_question" @click="pop">
 					<image src="https://z3.ax1x.com/2021/07/26/WWpPBt.png" mode="widthFix" class="footer_photo"></image>
 					<view class="">
 						{{quesiton_now}}
@@ -114,8 +85,49 @@
 					</view>
 				</view>
 			</view>
-	    </view>
-	
+	        <view class="footer_pop" v-show="box" >
+	        	<view class="circulal">
+	        		1
+	        	</view>
+				<view class="circulal">
+					1
+				</view>
+				<view class="circulal">
+					1
+				</view>
+				<view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view><view class="circulal">
+					1
+				</view>
+				
+	        </view>
+		</view>
+	 
 	</view>
 </template>
 
@@ -123,17 +135,53 @@
 	export default {
 		data() {
 			return {
+				box:false,
 				quesiton_now:1,
 				quesiton_total:'/10',
+				question:[{
+					id:'A',
+					que:'我国实行左侧通行原则'
+				},{
+					id:'B',
+					que:'我国实行左侧通行原则22'
+				},{
+					id:'C',
+					que:'我国实行左侧通行原则1'
+				},{
+					id:'D',
+					que:'我国实行左侧通行原则35'
+				}]
 			}
 		},
 		methods: {
-			
+			pop(){
+				if(this.box===false){
+					this.box=true
+				}else this.box=false	
+			}
 		}
 	}
 </script>
 
 <style>
+	.circulal{
+		width: 50rpx;
+		height: 50rpx;
+		line-height: 50rpx;
+		border-radius: 50%;
+		background-color: #DCFFDA;
+		color: #0CAF00;
+		text-align: center;
+        margin: 30rpx 20rpx 1px;
+		display: inline-block;
+	}
+	.footer_pop{
+		height: 500rpx;
+		width: 100%;
+		background-color:white;
+		/* display:flex; */
+		/* flex-wrap: wrap; */
+	}
 	.footer_question{
 		display: flex;
 		margin-top:20rpx ;
@@ -174,7 +222,7 @@
 	.footer{
 		position: fixed;
 		bottom: 0;
-		height: 100rpx;
+		/* height: 100rpx; */
 		width: 100%;
 		/* background-color: #0000FF */
 	}
@@ -215,6 +263,7 @@
 	}
 	.top_4_wai{
 		height: 55rpx;
+		line-height: 55rpx;
 		width: 150rpx;
 		border-radius: 30rpx;
 		background-color: #2C5DFE;
@@ -229,11 +278,12 @@
 		text-align: center;
 	}
 	.top_text{
-		margin-top: 5rpx;
-		margin-left: 15rpx;
+		/* margin-top: 5rpx; */
+		margin-left: 10rpx;
 	}
 	.top_3_wai{
 		height: 55rpx;
+		line-height: 55rpx;
 		width: 150rpx;
 		border-radius: 30rpx;
 		background-color: #2C5DFE;
@@ -245,7 +295,7 @@
 		font-weight: 500;
 		margin-top: 7rpx;
 		display: flex;
-		/* text-align: center; */
+		text-align: center;
 	}
 	.top_photo{
 		margin-top: 13rpx;
@@ -254,6 +304,7 @@
 	}
 	.top_2_wai{
 		height: 55rpx;
+		line-height: 55rpx;
 		width: 120rpx;
 		border-radius: 30rpx;
 		background-color: #2C5DFE;

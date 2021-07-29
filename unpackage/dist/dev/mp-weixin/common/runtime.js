@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"uview-ui/components/u-tabs-swiper/u-tabs-swiper":1,"uview-ui/components/u-badge/u-badge":1};
+/******/ 		var cssChunks = {"uview-ui/components/u-tabs-swiper/u-tabs-swiper":1,"uview-ui/components/u-circle-progress/u-circle-progress":1,"uview-ui/components/u-badge/u-badge":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"uview-ui/components/u-tabs-swiper/u-tabs-swiper":"uview-ui/components/u-tabs-swiper/u-tabs-swiper","uview-ui/components/u-badge/u-badge":"uview-ui/components/u-badge/u-badge"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"uview-ui/components/u-tabs-swiper/u-tabs-swiper":"uview-ui/components/u-tabs-swiper/u-tabs-swiper","uview-ui/components/u-circle-progress/u-circle-progress":"uview-ui/components/u-circle-progress/u-circle-progress","uview-ui/components/u-badge/u-badge":"uview-ui/components/u-badge/u-badge"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

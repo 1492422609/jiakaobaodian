@@ -1,50 +1,67 @@
 
-.navBarBox{background-color: #0000FF}
-.navBarBox .statusBar {}
-.navBarBox .navBar {
-	padding: 3rpx 50rpx;
-	padding-bottom: 8rpx;
+.header_middle_right.data-v-74d0bef4{
+	width: 100rpx;
+	height: 58rpx;
+	text-align: center;
+	border-radius:0 10rpx 10rpx 0;
+	/* border:  1rpx #000000 solid; */
+}
+.header_middle_left.data-v-74d0bef4{
+	/* background-color: white; */
+	width: 50%;
+	/* height: 80rpx; */
+	text-align: center;
+	border-radius: 10rpx  0 0 10rpx;
+	/* border:  1rpx #000000 solid; */
+}
+.header_middle.data-v-74d0bef4{
+	position: absolute;
+	width: 200rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	border-radius: 10rpx;
+	margin-left: 35%;
+	margin-top: 50rpx;
+	background-color: white;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: row;
-	        flex-direction: row;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	/* padding: 0 50rpx; */
+	/* border:  2rpx solid black; */
+	/* box-sizing: border-box; */
+	/* z-index: 10; */
+	/* overflow: hidden; */
 }
-.navBarBox .navBar .logo {
-	width: 82rpx;
-	height: 82rpx;
-	margin-right: 10rpx;
+.header_header.data-v-74d0bef4{
+	width: 100%;
+	height: 133rpx;
+	background-color: #F8F8F8;
 }
-.middle_text3{
+.middle_text3.data-v-74d0bef4{
 	margin-left: 10rpx;
 	font-size: 35rpx;
 	font-weight: 600;
 }
-.middle_text2{
+.middle_text2.data-v-74d0bef4{
 	margin-left: 170rpx;
 	font-size: 45rpx;
 	font-weight: 600;
 	color:#2C5DFE ;
 }
-.middle_text{
+.middle_text.data-v-74d0bef4{
 	margin-left: 50rpx;
 	font-size: 35rpx;
 	font-weight: 600;
 }
-.middle_photo{
+.middle_photo.data-v-74d0bef4{
 	width: 120rpx;
 	margin-top: 40rpx;
 	margin-left: 50rpx;
 }
-.middle_1{
+.middle_1.data-v-74d0bef4{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -58,7 +75,7 @@
 	-webkit-box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
 	        box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
 }
-.test1{
+.test1.data-v-74d0bef4{
 	width: 60%;
 	height: 85rpx;
 	line-height: 80rpx;
@@ -70,11 +87,11 @@
 	margin-left: 20%;
 	margin-top: 80rpx;
 }
-.name{
+.name.data-v-74d0bef4{
 	font-size: 38rpx;
 	margin-top: 10rpx;
 }
-.avater{
+.avater.data-v-74d0bef4{
 	text-align: center;
     margin-top: 40rpx;
 }

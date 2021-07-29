@@ -1,6 +1,73 @@
 
-.swiper-box{
+.prom_text3{
+	width: 80%;
+	height: 70rpx;
+	line-height: 70rpx;
+	margin-top: 100rpx;
+	margin-left: 10%;
+	border-radius: 10rpx;
+	color: white;
+	background-color: #2C5DFE
+}
+.prom_text2{
+	margin-top: 20rpx;
+	/* letter-spacing: inherit; */
+}
+.prom_text{
+	width: 75%;
+	margin-left: 12.5%;
+	padding-top: 300rpx;
+}
+.prom_photo{
+	width: 70%;
 	height: 600rpx;
+	/* text-align: center; */
+	margin-top: 300rpx;
+	margin-left: 15%;
+	background-image: url("https://z3.ax1x.com/2021/07/28/Wo29jU.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.video_middle_1{
+	margin-top: 40rpx;
+	margin-left: 40rpx;
+}
+.video_middle{
+	/* margin-top: 50rpx; */
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.video_head{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+.video_head_right{
+	margin-top: 30rpx;
+	margin-right: 30rpx;
+	width: 140rpx;
+	height: 45rpx;
+	line-height: 50rpx;
+	border-radius: 30rpx;
+	background-color: #0000FF;
+	color: white;
+	text-align: center;
+}
+.video_head_left{
+	margin-top: 10rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	margin-left: 30rpx;
+}
+.swiper-box{
+	height: 650rpx;
 }
 .button{
 	font-size: 35rpx;
@@ -102,7 +169,7 @@
 	position: absolute;
 	margin-top: -85rpx;
 	margin-left: 35rpx;
-	font-size: 5rpx
+	font-size: 25rpx
 }
 .footer_photo{
 	margin-left: 16rpx;
@@ -112,7 +179,7 @@
 }
 .line{
 	width: 100%;
-	height: 50rpx;
+	height: 30rpx;
 	background-color: #F1F1F1;
 }
 .test{

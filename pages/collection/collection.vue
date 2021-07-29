@@ -1,19 +1,20 @@
 <template>
 	<view>
-		<view class="navBarBox">
-			<view class="">
-				<view class="">
-					<navigator url="../index/index"> 
-					<view class="" style="height: 100rpx;">
-						<
+	   <view class="header_header" >
+	    	<view style="display: flex;">
+					<view class="" style="color: black;padding-top: 70rpx;margin-left: 30rpx;font-size: 40rpx;" @click="con">
+					    返回
 					</view>
-					</navigator>
-				</view>
-			</view>		
-		</view>
-	
-		
-		
+					<view class="header_middle">
+						<view class="header_middle_left" :style="{color:ccc,'background-color':bgc,}" @click="change">
+							错题
+						</view>
+						<view class="header_middle_right" :style="{'background-color':ccc,color:bgc,}" @click="change">
+							收藏
+						</view>
+					</view>
+	    	</view>
+	    </view>	
 		<view class="header">
 			<view class="avater">
 				<image src="https://z3.ax1x.com/2021/07/26/WWcPET.png" mode="widthFix" style="width: 150rpx;"></image>
@@ -24,9 +25,11 @@
 		</view>
 	    <view class="middle">
 	    	<view class="middle_1">
-	    		<image src="https://z3.ax1x.com/2021/07/26/WflSld.png" mode="widthFix" class="middle_photo"></image>
-	    	    <view class="middle_text">
-	    	    	全部错题
+	    		<view v-show="chan">
+	    			<image :src="bg_1" mode="widthFix" class="middle_photo"></image>
+	    		</view>
+				<view class="middle_text" >
+	    	    	{{text1}}
 	    	    </view>
 				<view class="middle_text2">
 					50
@@ -54,30 +57,75 @@
 				// 状态栏高度
 				statusBarHeight: 'padding-top: '+uni.getSystemInfoSync().statusBarHeight+'px',
 				// 导航栏高度
-				navBarHeight: 82
+				navBarHeight: 82,
+				bgc:'white',
+				ccc:'#2C5DFE',
+				none:'',
+				chan:true,
+				bg_1:'https://z3.ax1x.com/2021/07/26/WflSld.png',
+				text1:'全部错题',
+				text2:'收藏题目',
+				text:''
 			}
 		},
 		methods: {
+			con(){
+				uni.switchTab({
+				url: '/pages/index/index'
+				});
+			},
+			change(){
+				this.none=this.bgc;
+				this.bgc=this.ccc;
+				this.ccc=this.none;
+				
+				this.text=this.text1;
+				this.text1=this.text2;
+				this.text2=this.text;
+			},
 			
 		}
 	}
 </script>
 
-<style>
-	.navBarBox{background-color: #0000FF}
-	.navBarBox .statusBar {}
-	.navBarBox .navBar {
-		padding: 3rpx 50rpx;
-		padding-bottom: 8rpx;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
+<style scoped>
+	.header_middle_right{
+		width: 100rpx;
+		height: 58rpx;
+		text-align: center;
+		border-radius:0 10rpx 10rpx 0;
+		/* border:  1rpx #000000 solid; */
 	}
-	.navBarBox .navBar .logo {
-		width: 82rpx;
-		height: 82rpx;
-		margin-right: 10rpx;
+	.header_middle_left{
+		/* background-color: white; */
+		width: 50%;
+		/* height: 80rpx; */
+		text-align: center;
+		border-radius: 10rpx  0 0 10rpx;
+		/* border:  1rpx #000000 solid; */
+	}
+	.header_middle{
+		position: absolute;
+		width: 200rpx;
+		height: 60rpx;
+		line-height: 60rpx;
+		border-radius: 10rpx;
+		margin-left: 35%;
+		margin-top: 50rpx;
+		background-color: white;
+		display: flex;
+		justify-content: space-between;
+		/* padding: 0 50rpx; */
+		/* border:  2rpx solid black; */
+		/* box-sizing: border-box; */
+		/* z-index: 10; */
+		/* overflow: hidden; */
+	}
+	.header_header{
+		width: 100%;
+		height: 133rpx;
+		background-color: #F8F8F8;
+
 	}
 
 	.middle_text3{

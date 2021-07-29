@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/index/index"],{
 
 /***/ 40:
-/*!************************************************************!*\
-  !*** F:/qst/test/main.js?{"page":"pages%2Findex%2Findex"} ***!
-  \************************************************************/
+/*!**********************************************************************!*\
+  !*** F:/qst/test - 副本 - 副本/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_index.default);
 /***/ }),
 
 /***/ 41:
-/*!*****************************************!*\
-  !*** F:/qst/test/pages/index/index.vue ***!
-  \*****************************************/
+/*!***************************************************!*\
+  !*** F:/qst/test - 副本 - 副本/pages/index/index.vue ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/index/index.vue"
 /***/ }),
 
 /***/ 42:
-/*!************************************************************************!*\
-  !*** F:/qst/test/pages/index/index.vue?vue&type=template&id=57280228& ***!
-  \************************************************************************/
+/*!**********************************************************************************!*\
+  !*** F:/qst/test - 副本 - 副本/pages/index/index.vue?vue&type=template&id=57280228& ***!
+  \**********************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 43:
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/qst/test/pages/index/index.vue?vue&type=template&id=57280228& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/qst/test - 副本 - 副本/pages/index/index.vue?vue&type=template&id=57280228& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uTabsSwiper: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 156))
+      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 150))
     }
   }
 } catch (e) {
@@ -130,9 +130,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 44:
-/*!******************************************************************!*\
-  !*** F:/qst/test/pages/index/index.vue?vue&type=script&lang=js& ***!
-  \******************************************************************/
+/*!****************************************************************************!*\
+  !*** F:/qst/test - 副本 - 副本/pages/index/index.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -146,14 +146,24 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 45:
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/qst/test/pages/index/index.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/qst/test - 副本 - 副本/pages/index/index.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -489,7 +499,17 @@ var _default =
       {
         name: '科目四' }],
 
-      pop: false,
+      skill: [{
+        name: '侧方位停车' },
+      {
+        name: '倒车入库' },
+      {
+        name: '曲线行驶' },
+      {
+        name: '直角转弯' }],
+
+      pop: true,
+      prom: false,
       bianhao: '1',
       // 内容
       current: 0,
@@ -500,6 +520,8 @@ var _default =
 
   },
   onLoad: function onLoad() {
+
+
 
   },
   methods: {
@@ -519,17 +541,22 @@ var _default =
     },
     // tab栏内容切换
     animationfinish: function animationfinish(_ref2) {var current = _ref2.detail.current;
-      console.log(current);
+      // console.log(current)
       this.swiperCurrent = current;
       this.current = current;
+    },
+    prompt: function prompt() {
+      if (this.prom === false) {
+        this.prom = true;
+      } else this.prom = false;
     } } };exports.default = _default;
 
 /***/ }),
 
 /***/ 46:
-/*!**************************************************************************!*\
-  !*** F:/qst/test/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
-  \**************************************************************************/
+/*!************************************************************************************!*\
+  !*** F:/qst/test - 副本 - 副本/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -543,9 +570,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 47:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/qst/test/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/qst/test - 副本 - 副本/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

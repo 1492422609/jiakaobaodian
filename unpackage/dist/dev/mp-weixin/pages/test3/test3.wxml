@@ -1,3 +1,1 @@
-<view>damm
-	damm
-	damm</view>
+<view class="data-v-1a613a6c"><u-circle-progress vue-id="671d777c-1" active-color="#2979ff" percent="{{part}}" class="data-v-1a613a6c" bind:__l="__l" vue-slots="{{['default']}}"><view class="u-progress-content data-v-1a613a6c"><text class="u-progress-info data-v-1a613a6c">查找中</text></view></u-circle-progress></view>
