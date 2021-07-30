@@ -5,14 +5,14 @@
 				<image src="https://z3.ax1x.com/2021/07/27/WhqKdU.png" mode="widthFix" class="header_photo"></image>
 			</view>
 			<view class="header_grades">
-				95
+			     {{grades}}
 			</view>
 			<view class="header_qualified">
 				成绩合格
 			</view>
 		</view>
 		<view class="middle">
-			<view class="middle_1" v-for="item in list">
+			<view class="middle_1" v-for="(item,index) in list" :key="index">
 				<view  style="display: flex;justify-content: space-between;padding: 0 60rpx;">
 					<view class="middle_left">
 						<view class="num">
@@ -46,6 +46,7 @@
 	export default {
 		data() {
 			return {
+				grades:'95',
 				list:[{
 					id:'1',
 					name:'全部试题',
@@ -59,7 +60,24 @@
 		},
 		methods: {
 			
-		}
+		},
+		// onLoad(){
+		// 	var that=this;
+		// 	console.log('ok');
+		// 	uni.request({
+		// 		url:'http://jiakao.maiwd.cn/api/video/detail',
+		// 		method:"POST",
+		// 		data:{
+		// 			token:'ewqewqeqwe',
+		// 			id:2
+		// 		},
+		// 		success:(res)=>{
+		// 			var timer=res.data.time;
+		// 			that.time=timer;
+		// 			console.log(res.data.time)
+		// 		}
+		// 	})
+		// }
 	}
 </script>
 

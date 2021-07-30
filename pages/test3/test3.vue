@@ -1,75 +1,61 @@
 <template>
-    <view>
-        <view v-for="(item,pri) in items" :key=item.price :class="item.price==4 ? 'addclass' : '' " @click='onclick(pri)' class="fruits">
-            <text>{{item.name}}</text>
-            <text>{{item.price}}</text>
-
+     <view class="content">
+         <view class="page-section indexListBox">
+            <view class="indexList" v-for="(item , index) in homePosts" :key="index">
+                <view class="title">{{item.title}}</view>
+                <view v-html="item.content"></view>
+            </view>
         </view>
     </view>
 </template>
-
-<script>
-    export default {
-			// 页面加载完给自然方向，它就能根据用户横竖自动切换
-			onLoad() {
-					// #ifdef APP-PLUS
-					plus.screen.lockOrientation('default');
-					// #endif
-				},
-			// 页面关闭时清除横屏正方向
-			onUnload() {
-					// #ifdef APP-PLUS
-					plus.screen.lockOrientation('portrait-primary');
-					// #endif
-				},
-
-        data() {
-            return {
-                items: [{
-                        name: '苹果',
-                        price: '5'
-                    },
-                    {
-                        name: '香蕉',
-                        price: "8"
-                    },
-                    {
-                        name: '西瓜',
-                        price: '4'
-                    },
-                    {
-                        name: '桃子',
-                        price: '3'
-                    },
-                    {
-                        name: '草莓',
-                        price: "6"
-                    },
-                    {
-                        name: '樱桃',
-                        price: '10'
-                    },
-                ],
-                isactive: '1'
-            }
-        },
-        methods: {
-            onclick(index) {
-                console.log(index)
-				
-                //将点击的元素的索引赋值给bian变量
-                this.isactive = index
-				console.log(this.isactive)
-            }
-        }
-    }
-</script>
-
 <style>
-    .fruits {
-        margin: 50upx;
+    .indexList uni-image {
+            width: 100%;
+            height: 130px;
+            background: #eaeaea;
+        }
+        .indexList {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .indexList .title {
+            background: #000;
+            color: #fff;
+            font-size: 16px;
+            line-height: 37px;
+            padding: 0 10px;
+            margin-top: -5px;
     }
-    .addclass {
-        color: red;
-    }
+       .indexListBox{
+           margin-top: 20px;
+       }
 </style>
+<script>
+     export default {
+            data() {
+                return {
+                   homePosts:[],
+                }
+            },
+             onLoad() {
+                         //教程 uni-app:渲染app的首页文章数据第一步:将该方法加入onLoad中，使页面一加载的时候就获取文章列表
+                         this.getHomePosts();
+                     },
+            methods:{
+                getHomePosts(){
+                    var _self = this;
+                    uni.request({
+                        url: 'http://192.168.1.156:10086/smart-admin-api/article/page/list',//接口地址
+                        header: {
+                          'content-type': 'application/x-www-form-urlencoded',  //自定义请求头信息
+                        },
+                        success: (res) => {
+                            // 请求成功之后将文章列表数据赋值给homePosts
+                            _self.homePosts=res.data.data.list;//根据API数据找到对应的集合
+                        }
+                    });
+                }
+            }
+      
+        }
+</script>

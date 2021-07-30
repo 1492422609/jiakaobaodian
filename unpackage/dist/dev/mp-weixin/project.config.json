@@ -23,20 +23,14 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/grades_final/grades_final",
-          "pathName": "pages/grades_final/grades_final",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/failed/failed",
-          "pathName": "pages/failed/failed",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/grades/grades",
           "pathName": "pages/grades/grades",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/library/library",
+          "pathName": "pages/library/library",
           "scene": null
         }
       ]

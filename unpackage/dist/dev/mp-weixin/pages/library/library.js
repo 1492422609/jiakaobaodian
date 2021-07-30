@@ -130,9 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -265,8 +263,40 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
+  onLoad: function onLoad() {
+    var that = this;
+    // console.log(that.question[0].id);
+    uni.request({
+      url: 'http://jiakao.maiwd.cn/api/question/index',
+      method: "POST",
+      data: {
+        page: 1,
+        limit: 10,
+        token: '5rew5',
+        eq_car_type: 1,
+        eq_subject: 1 },
+
+      success: function success(res) {
+        // console.log(res.data.data.data[5].question_type)
+        that.topic = res.data.data.data[3].question_content;
+        that.question[0].id = res.data.data.data[1].option1;
+        that.question[1].id = res.data.data.data[1].option2;
+        that.question[2].id = res.data.data.data[1].option3;
+        that.question[3].id = res.data.data.data[1].option4;
+        if (res.data.data.data[5].question_type == 1) {
+          that.type = '单选';
+        } else if (res.data.data.data[5].question_type == 1) {
+          that.type = '多选';
+        } else {
+          that.type = '判断';
+        }
+      } });
+
+  },
   data: function data() {
     return {
+      topic: '',
+      type: '',
       jinnang: true,
       box: false,
       quesiton_now: 1,
@@ -297,6 +327,7 @@ var _default =
       }
 
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

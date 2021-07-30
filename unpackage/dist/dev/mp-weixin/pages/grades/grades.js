@@ -178,6 +178,7 @@ var _default =
 {
   data: function data() {
     return {
+      grades: '95',
       list: [{
         id: '1',
         name: '全部试题',
@@ -189,7 +190,27 @@ var _default =
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {}
+
+
+  // onLoad(){
+  // 	var that=this;
+  // 	console.log('ok');
+  // 	uni.request({
+  // 		url:'http://jiakao.maiwd.cn/api/video/detail',
+  // 		method:"POST",
+  // 		data:{
+  // 			token:'ewqewqeqwe',
+  // 			id:2
+  // 		},
+  // 		success:(res)=>{
+  // 			var timer=res.data.time;
+  // 			that.time=timer;
+  // 			console.log(res.data.time)
+  // 		}
+  // 	})
+  // }
+};exports.default = _default;
 
 /***/ }),
 

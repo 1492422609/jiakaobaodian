@@ -10,7 +10,7 @@
 				</view>
 			</view>
 			<view class="top_2_wai">
-				单选
+				{{type}}
 			</view>
 			<view class="top_3_wai">
 				<image src="https://z3.ax1x.com/2021/07/26/WRI4AI.png" mode="widthFix" class="top_photo"></image>
@@ -26,7 +26,7 @@
 			</view>
 		</view>
 	    <view class="topic">
-	    	超车前需从前车左侧超越，以下说法正确的是 ？
+	    	{{topic}}
 	    </view>
 		<view class="answer_total">
 			<view class="answer" v-for="qut in question">
@@ -38,9 +38,7 @@
 				        {{qut.que}}
 					</view>
 				</view>
-			</view>
-			
-				
+			</view>				
 		</view>
 		<view class="jinnang" v-show="jinnang">
 			<view class="jinnang_1">
@@ -133,8 +131,40 @@
 
 <script>
 	export default {
+		onLoad(){
+			var that=this;
+			// console.log(that.question[0].id);
+			uni.request({
+				url:'http://jiakao.maiwd.cn/api/question/index',
+				method:"POST",
+				data:{
+					page:1,
+					limit:10,
+					token:'5rew5',
+					eq_car_type:1,
+					eq_subject:1,
+				},
+				success:(res)=>{
+					// console.log(res.data.data.data[5].question_type)
+					that.topic=(res.data.data.data[3].question_content)
+					 that.question[0].id=res.data.data.data[1].option1
+					 that.question[1].id=res.data.data.data[1].option2
+					 that.question[2].id=res.data.data.data[1].option3
+					 that.question[3].id=res.data.data.data[1].option4
+					 if(res.data.data.data[5].question_type==1){
+						 that.type='单选'			
+					 }else if(res.data.data.data[5].question_type==1){
+						 that.type='多选'	
+					 }else{
+						 that.type='判断'
+					 }
+				}
+			})
+		},
 		data() {
 			return {
+				topic:'',
+				type:'',
 				jinnang:true,
 				box:false,
 				quesiton_now:1,
