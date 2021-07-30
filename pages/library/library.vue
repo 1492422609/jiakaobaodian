@@ -18,7 +18,7 @@
 					读题
 				</view>
 			</view>
-			<view class="top_4_wai">
+			<view class="top_4_wai" @click="fons">
 				<image src="https://z3.ax1x.com/2021/07/26/WRI5Nt.png" mode="widthFix" class="top_photo"></image>
 				<view class="top_text">
 					设置
@@ -29,7 +29,8 @@
 	    	{{topic}}
 	    </view>
 		<view class="answer_total">
-			<view class="answer" v-for="qut in question">
+			<view class="answer" v-for="qut in question" :style="{'font-size':font_size+'rpx'}">
+				     <!-- :style="qut.jud=='yes' ? 'background-color:#0CAF00;color:white' : '' " -->
 				<view class="answer_pad">
 					<view class="answer_num">
 					    {{qut.id}}
@@ -125,12 +126,89 @@
 				
 	        </view>
 		</view>
-	 
+	    <view class="size" v-show="size">
+	    	<view class="protect" @click="fons">
+	    		<view class="size_bottom" @click.stop="stop">
+	    			<view>
+	    				<view class="bottom_topic">
+	    					字体大小设置
+	    				</view>
+	    				<view class="line_5"></view>
+	    			</view>
+					<view class="size_bottom_text">
+						<view class="">
+							小号
+						</view>
+						<view class="">
+							标准
+						</view>
+						<view class="">
+							特大
+						</view>
+					</view>
+					<view style="display:flex ;margin-left:100rpx  ;">
+						<view class="">
+							A
+						</view>
+						<view :class="font_size==30 ? 'size_cir1':'size_cir'" @click="font_size0" ></view>
+						<view class="size-line" ></view>
+						<view :class="font_size==35 ? 'size_cir1':'size_cir'" @click="font_size2"></view>
+						<view class="size-line"></view>
+						<view :class="font_size==40 ? 'size_cir1':'size_cir'" @click="font_size3"></view>
+						<view class="size-line"></view>
+						<view :class="font_size==45 ? 'size_cir1':'size_cir'" @click="font_size4"></view>
+						<view class="size-line"></view>
+						<view :class="font_size==50 ? 'size_cir1':'size_cir'" @click="font_size5"></view>
+						<view style="font-size: 50rpx;">
+							A
+						</view>
+					</view>
+	    		</view>				
+	    	</view>
+	    </view>
 	</view>
 </template>
 
 <script>
 	export default {
+		methods: {
+			font_size5(){
+				this.font_size=50
+			},
+			font_size4(){
+				this.font_size=45
+			},
+			font_size3(){
+				this.font_size=40
+			},
+			font_size2(){
+				this.font_size=35
+			},
+			font_size0(){
+				this.font_size=30
+			},
+			pop(){
+				if(this.box===false){
+					this.box=true;
+					this.jinnang=false;
+				}else {
+					this.box=false;
+					this.jinnang=true;
+				}
+			},
+			fons(){
+				if(this.size==false){
+					this.size=true;
+					this.jinnang=false;
+				}else {
+					this.size=false;
+					this.jinnang=true;
+				}
+			},
+			stop(){
+				
+			}
+		},
 		onLoad(){
 			var that=this;
 			// console.log(that.question[0].id);
@@ -163,6 +241,9 @@
 		},
 		data() {
 			return {
+				font_size1:30,
+				font_size:40,
+				size:false,
 				topic:'',
 				type:'',
 				jinnang:true,
@@ -180,26 +261,68 @@
 					que:'我国实行左侧通行原则1'
 				},{
 					id:'D',
-					que:'我国实行左侧通行原则35'
+					que:'我国实行左侧通行原则35我国实行左侧通行原则3'
 				}]
 			}
 		},
-		methods: {
-			pop(){
-				if(this.box===false){
-					this.box=true;
-					this.jinnang=false;
-				}else {
-					this.box=false;
-					this.jinnang=true;
-				}
-				
-			}
-		}
+		
 	}
 </script>
 
-<style>
+<style scoped>
+	.size-line{
+		width: 120rpx;
+		height: 5rpx;
+		background-color: #C8C7CC;
+		margin: 8rpx -10rpx;
+	}
+	.size_cir1{
+		height: 30rpx;
+		width: 30rpx;
+		border-radius: 50%;
+		background-color: #2C5DFE;
+		z-index: 10;
+		margin-top: -5rpx;
+	}
+	.size_cir{
+		height: 20rpx;
+		width: 20rpx;
+		border-radius: 50%;
+		background-color: #000000;
+		z-index: 10;
+	}
+	.size_bottom_text{
+		display: flex;
+		justify-content: space-around;
+		margin: 30rpx;
+	}
+	.line_5{
+		width: 15%;
+		height: 5rpx;
+		margin-left: 42.5%;
+		background-color: #0000FF;
+	}
+	.bottom_topic{
+		text-align: center;
+		font-size: 35rpx;
+		padding: 30rpx 0 20rpx;
+	}
+	.size_bottom{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 350rpx;
+		background-color: white;
+	}
+	.protect{
+			width:100% ;
+			height: 1700rpx;
+			background:rgba(0, 0, 0, 0.4);
+			position:absolute;
+			z-index: 10;
+			margin-top: -800rpx;
+			overflow: hidden;
+	}
 	.circulal{
 		width: 50rpx;
 		height: 50rpx;
@@ -289,6 +412,7 @@
 		height: 90rpx;
 		background-color: #EBEBEB;
 		border-radius: 10rpx;
+		/* padding: 10rpx 0; */
 		/* vertical-align: middle; */
 	}
 	.topic{

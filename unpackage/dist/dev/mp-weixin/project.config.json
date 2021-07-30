@@ -23,12 +23,6 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/grades/grades",
-          "pathName": "pages/grades/grades",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/library/library",
           "pathName": "pages/library/library",
           "scene": null
