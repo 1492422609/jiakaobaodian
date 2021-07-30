@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uCircleProgress: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-circle-progress/u-circle-progress */ "uview-ui/components/u-circle-progress/u-circle-progress").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-circle-progress/u-circle-progress.vue */ 157))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-circle-progress/u-circle-progress */ "uview-ui/components/u-circle-progress/u-circle-progress").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-circle-progress/u-circle-progress.vue */ 197))
     }
   }
 } catch (e) {
@@ -220,7 +220,8 @@ var _default =
 {
   data: function data() {
     return {
-      part: 50 };
+      part: 50,
+      total: 1300 };
 
   },
   methods: {} };exports.default = _default;

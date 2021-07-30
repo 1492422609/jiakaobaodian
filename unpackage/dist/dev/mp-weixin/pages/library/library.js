@@ -267,6 +267,7 @@ var _default =
 {
   data: function data() {
     return {
+      jinnang: true,
       box: false,
       quesiton_now: 1,
       quesiton_total: '/10',
@@ -289,7 +290,12 @@ var _default =
     pop: function pop() {
       if (this.box === false) {
         this.box = true;
-      } else this.box = false;
+        this.jinnang = false;
+      } else {
+        this.box = false;
+        this.jinnang = true;
+      }
+
     } } };exports.default = _default;
 
 /***/ }),

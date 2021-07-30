@@ -9,8 +9,9 @@
 					1200题
 				</view>
 			</view>
-			<view class="row_3">
-				<view class="row_text">
+			<view class="row_3" >
+				
+				<view class="row_text" >
 					文字题
 				</view>
 				<view class="row_text">
@@ -19,6 +20,7 @@
 				<view class="row_text">
 					正确题
 				</view>
+			
 			</view>
 			<view class="line"></view>
 		</view>

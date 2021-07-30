@@ -73,7 +73,7 @@
 									</navigator>						
 								</view>
 								<view class="second_left_1">
-									<navigator url="../library/library">
+									<navigator url="../wrong_question/wrong_question">
 									<image src="https://z3.ax1x.com/2021/07/23/WrLFiT.png" mode="" class="second_left_photo">
 									</image>
 									<view class="second_left_text2">
@@ -362,16 +362,20 @@
 				swiperCurrent: 0,
 				// 偏移量
 				dx: 0,
+				timer:null,
 			}
 		},
 		onLoad() {
-                 // #ifdef APP-PLUS
-				plus.screen.lockOrientation('landscape-primary');
-				// #endif
+    //              // #ifdef APP-PLUS
+				// plus.screen.lockOrientation('landscape-primary');
+				// // #endif
 		},
 		methods: {
 			radio(e){
 				this.bianhao=e;
+				this.timer = setTimeout( () => {
+				    this.pop=false		
+				}, 300)
 			},
 			pop1(){
 				this.pop=false;

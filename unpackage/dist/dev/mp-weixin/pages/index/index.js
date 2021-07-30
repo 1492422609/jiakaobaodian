@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uTabsSwiper: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 150))
+      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 190))
     }
   }
 } catch (e) {
@@ -516,17 +516,21 @@ var _default =
       // 下标
       swiperCurrent: 0,
       // 偏移量
-      dx: 0 };
+      dx: 0,
+      timer: null };
 
   },
   onLoad: function onLoad() {
-
+    //
 
 
   },
   methods: {
-    radio: function radio(e) {
+    radio: function radio(e) {var _this = this;
       this.bianhao = e;
+      this.timer = setTimeout(function () {
+        _this.pop = false;
+      }, 300);
     },
     pop1: function pop1() {
       this.pop = false;

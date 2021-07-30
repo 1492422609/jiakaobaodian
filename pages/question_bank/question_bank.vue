@@ -25,25 +25,25 @@
 						</view>
 						<view class="line_1" style="display: flex;margin-top: 20rpx;">
 							<view class="box_1">
-								<view class="box_2"></view>
+								<view class="box_1_1"></view>
 							</view>
-							<view>
-								总题数1300
-							</view>
-						</view>
-						<view class="line_1" style="display: flex;margin-top: 20rpx;">
-							<view class="box_1">
-								<view class="box_2"></view>
-							</view>
-							<view>
-								总题数1300
+							<view style="margin-top: -7rpx;">
+								总题数{{total}}
 							</view>
 						</view>
 						<view class="line_1" style="display: flex;margin-top: 20rpx;">
-							<view class="box_1">
-								<view class="box_2"></view>
+							<view class="box_2">
+								<view class="box_1_1"></view>
 							</view>
-							<view>
+							<view style="margin-top: -7rpx;">
+								已做300
+							</view>
+						</view>
+						<view class="line_1" style="display: flex;margin-top: 20rpx;">
+							<view class="box_3">
+								<view class="box_1_1"></view>
+							</view>
+							<view style="margin-top: -7rpx;">
 								总题数1300
 							</view>
 						</view>
@@ -65,7 +65,8 @@
 	export default {
 		data() {
 			return {
-				part:50
+				part:50,
+				total:1300
 			}
 		},
 		methods: {
@@ -75,12 +76,28 @@
 </script>
 
 <style>
-	.box_2{
+	.box_1_1{
 		width: 20rpx;
 		height: 20rpx;
 		margin-left: 5rpx;
 		margin-top: 5rpx;
 		background-color: white;
+	}
+	.box_3{
+		width: 30rpx;
+		height: 30rpx;
+		/* line-height: 40rpx; */
+		border-radius:3rpx ;
+		background-color:#FF9500;
+		margin-right: 10rpx;
+	}
+	.box_2{
+		width: 30rpx;
+		height: 30rpx;
+		/* line-height: 40rpx; */
+		border-radius:3rpx ;
+		background-color:#2C5DFE;
+		margin-right: 10rpx;
 	}
 	.box_1{
 		width: 30rpx;

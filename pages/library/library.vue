@@ -42,7 +42,7 @@
 			
 				
 		</view>
-		<view class="jinnang">
+		<view class="jinnang" v-show="jinnang">
 			<view class="jinnang_1">
 				<image src="https://z3.ax1x.com/2021/07/26/WRqnXT.png" mode="widthFix" style="width: 100rpx;margin-top: 10rpx;"></image>
 			    <view style="margin-top: 10rpx;">
@@ -135,6 +135,7 @@
 	export default {
 		data() {
 			return {
+				jinnang:true,
 				box:false,
 				quesiton_now:1,
 				quesiton_total:'/10',
@@ -156,8 +157,13 @@
 		methods: {
 			pop(){
 				if(this.box===false){
-					this.box=true
-				}else this.box=false	
+					this.box=true;
+					this.jinnang=false;
+				}else {
+					this.box=false;
+					this.jinnang=true;
+				}
+				
 			}
 		}
 	}
@@ -179,6 +185,7 @@
 		height: 500rpx;
 		width: 100%;
 		background-color:white;
+		background-color: white;
 		/* display:flex; */
 		/* flex-wrap: wrap; */
 	}
@@ -205,14 +212,13 @@
 		font-size: 30rpx;
 	}
 	.collection{
-		margin-top: 20rpx;
+		padding-top: 20rpx;
 		display: flex;
 		margin-left: 30rpx;
 	}
 	.footer_photo{
 		width: 40rpx;
 		margin-top: 5rpx;
-		
 	}
 	.line{
 		width: 100%;
@@ -224,7 +230,7 @@
 		bottom: 0;
 		/* height: 100rpx; */
 		width: 100%;
-		/* background-color: #0000FF */
+		background-color: white
 	}
 	.jinnang{
 		position: absolute;

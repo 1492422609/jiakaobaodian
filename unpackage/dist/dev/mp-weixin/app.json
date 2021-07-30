@@ -13,7 +13,12 @@
     "pages/agreement/agreement",
     "pages/skill/skill",
     "pages/test2/test2",
-    "pages/test3/test3"
+    "pages/test3/test3",
+    "pages/failed/failed",
+    "pages/wrong_question/wrong_question",
+    "pages/vip/vip",
+    "pages/analysis/analysis",
+    "pages/grades_final/grades_final"
   ],
   "subPackages": [],
   "window": {
@@ -43,5 +48,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap58.json"
+  "sitemapLocation": "sitemap78.json"
 }
