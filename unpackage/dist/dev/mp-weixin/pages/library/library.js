@@ -301,6 +301,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   methods: {
@@ -348,19 +351,19 @@ var _default =
       url: 'http://jiakao.maiwd.cn/api/question/index',
       method: "POST",
       data: {
-        page: 1,
+        page: 6,
         limit: 10,
         token: '5rew5',
         eq_car_type: 1,
         eq_subject: 1 },
 
       success: function success(res) {
-        // console.log(res.data.data.data[5].question_type)
+        // zzconsole.log(res.data.data.data[5].question_type)
         that.topic = res.data.data.data[3].question_content;
-        that.question[0].id = res.data.data.data[1].option1;
-        that.question[1].id = res.data.data.data[1].option2;
-        that.question[2].id = res.data.data.data[1].option3;
-        that.question[3].id = res.data.data.data[1].option4;
+        that.question[0].ques = res.data.data.data[3].option1;
+        that.question[1].ques = res.data.data.data[3].option2;
+        that.question[2].ques = res.data.data.data[3].option3;
+        that.question[3].ques = res.data.data.data[3].option4;
         if (res.data.data.data[5].question_type == 1) {
           that.type = '单选';
         } else if (res.data.data.data[5].question_type == 1) {
@@ -383,17 +386,13 @@ var _default =
       quesiton_now: 1,
       quesiton_total: '/10',
       question: [{
-        id: 'A',
-        que: '我国实行左侧通行原则' },
+        ques: '' },
       {
-        id: 'B',
-        que: '我国实行左侧通行原则22' },
+        ques: '' },
       {
-        id: 'C',
-        que: '我国实行左侧通行原则1' },
+        ques: '' },
       {
-        id: 'D',
-        que: '我国实行左侧通行原则35我国实行左侧通行原则3' }] };
+        ques: '' }] };
 
 
   } };exports.default = _default;

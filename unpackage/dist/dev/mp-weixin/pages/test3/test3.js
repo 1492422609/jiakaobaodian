@@ -130,7 +130,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -165,29 +171,11 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   data: function data() {
-    return {
-      homePosts: [] };
+    return {};
+
 
   },
-  onLoad: function onLoad() {
-    //教程 uni-app:渲染app的首页文章数据第一步:将该方法加入onLoad中，使页面一加载的时候就获取文章列表
-    this.getHomePosts();
-  },
-  methods: {
-    getHomePosts: function getHomePosts() {
-      var _self = this;
-      uni.request({
-        url: 'http://192.168.1.156:10086/smart-admin-api/article/page/list', //接口地址
-        header: {
-          'content-type': 'application/x-www-form-urlencoded' //自定义请求头信息
-        },
-        success: function success(res) {
-          // 请求成功之后将文章列表数据赋值给homePosts
-          _self.homePosts = res.data.data.list; //根据API数据找到对应的集合
-        } });
-
-    } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+  methods: {} };exports.default = _default;
 
 /***/ }),
 

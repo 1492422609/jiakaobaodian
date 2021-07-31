@@ -1,1 +1,1 @@
-<view class="content"><view class="page-section indexListBox"><block wx:for="{{homePosts}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="indexList"><view class="title">{{item.title}}</view><view><rich-text nodes="{{item.content}}"></rich-text></view></view></block></view></view>
+<view><view class="answer"><view class="answer_pad"><view class="answer_num">damm</view><view class="answer_text">dammqwehodqwohedwqehdqwoedhqwoqihedqwoiqwiwoheqeiwheoidwqehwqoiehhewqehkqw</view></view></view></view>

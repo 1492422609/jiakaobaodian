@@ -1,7 +1,8 @@
 <template>
 	<view>
-		<view class="top">
-			<view class="top_1">
+		<!-- :class="size=true?'protect':''" @click="fons" -->
+		<view class="top"  >
+			<view class="top_1" >
 				<view class="quesiton_now">
 					{{quesiton_now}}
 				</view>
@@ -29,14 +30,16 @@
 	    	{{topic}}
 	    </view>
 		<view class="answer_total">
-			<view class="answer" v-for="qut in question" :style="{'font-size':font_size+'rpx'}">
-				     <!-- :style="qut.jud=='yes' ? 'background-color:#0CAF00;color:white' : '' " -->
+			<view class="answer" v-for="(qut,index) in question" :ikey="index" :style="{'font-size':font_size+'rpx'}" @click="questio(index)">
 				<view class="answer_pad">
-					<view class="answer_num">
+					<!-- <view class="answer_num">
 					    {{qut.id}}
 					</view>
 					<view class="answer_text">
 				        {{qut.que}}
+					</view> -->
+					<view class="">
+						{{qut.ques}}
 					</view>
 				</view>
 			</view>				
@@ -127,7 +130,7 @@
 	        </view>
 		</view>
 	    <view class="size" v-show="size">
-	    	<view class="protect" @click="fons">
+	    	<view @click="fons" >
 	    		<view class="size_bottom" @click.stop="stop">
 	    			<view>
 	    				<view class="bottom_topic">
@@ -172,6 +175,40 @@
 <script>
 	export default {
 		methods: {
+			questio(index){
+				this.quesiton_now=this.quesiton_now+1
+				var that=this
+				console.log(index);
+				this.pages=this.pages+1;
+				// console.log(this.pages)
+				uni.request({
+					url:'http://jiakao.maiwd.cn/api/question/index',
+					method:"POST",
+					data:{
+						page:this.pages,
+						limit:10,
+						token:'5rew5',
+						eq_car_type:1,
+						eq_subject:1,
+					},
+					success:(res)=>{
+						// zzconsole.log(res.data.data.data[5].question_type)
+						that.topic=(res.data.data.data[3].question_content)
+						 that.question[0].ques=res.data.data.data[3].option1
+						 that.question[1].ques=res.data.data.data[3].option2
+						 that.question[2].ques=res.data.data.data[3].option3
+						 that.question[3].ques=res.data.data.data[3].option4
+						 if(res.data.data.data[5].question_type==1){
+							 that.type='单选'			
+						 }else if(res.data.data.data[5].question_type==1){
+							 that.type='多选'	
+						 }else{
+							 that.type='判断'
+						 }
+					}
+				})
+			
+			},
 			font_size5(){
 				this.font_size=50
 			},
@@ -216,19 +253,19 @@
 				url:'http://jiakao.maiwd.cn/api/question/index',
 				method:"POST",
 				data:{
-					page:1,
+					page:this.pages,
 					limit:10,
 					token:'5rew5',
 					eq_car_type:1,
 					eq_subject:1,
 				},
 				success:(res)=>{
-					// console.log(res.data.data.data[5].question_type)
+					// zzconsole.log(res.data.data.data[5].question_type)
 					that.topic=(res.data.data.data[3].question_content)
-					 that.question[0].id=res.data.data.data[1].option1
-					 that.question[1].id=res.data.data.data[1].option2
-					 that.question[2].id=res.data.data.data[1].option3
-					 that.question[3].id=res.data.data.data[1].option4
+					 that.question[0].ques=res.data.data.data[3].option1
+					 that.question[1].ques=res.data.data.data[3].option2
+					 that.question[2].ques=res.data.data.data[3].option3
+					 that.question[3].ques=res.data.data.data[3].option4
 					 if(res.data.data.data[5].question_type==1){
 						 that.type='单选'			
 					 }else if(res.data.data.data[5].question_type==1){
@@ -241,6 +278,7 @@
 		},
 		data() {
 			return {
+				pages:5,
 				font_size1:30,
 				font_size:40,
 				size:false,
@@ -251,17 +289,13 @@
 				quesiton_now:1,
 				quesiton_total:'/10',
 				question:[{
-					id:'A',
-					que:'我国实行左侧通行原则'
+					ques:''
 				},{
-					id:'B',
-					que:'我国实行左侧通行原则22'
+					ques:''
 				},{
-					id:'C',
-					que:'我国实行左侧通行原则1'
+					ques:''
 				},{
-					id:'D',
-					que:'我国实行左侧通行原则35我国实行左侧通行原则3'
+					ques:''
 				}]
 			}
 		},
@@ -316,12 +350,13 @@
 	}
 	.protect{
 			width:100% ;
-			height: 1700rpx;
+			/* height: 1700rpx; */
 			background:rgba(0, 0, 0, 0.4);
 			position:absolute;
 			z-index: 10;
-			margin-top: -800rpx;
+			/* margin-top: -800rpx; */
 			overflow: hidden;
+			z-index: 500;
 	}
 	.circulal{
 		width: 50rpx;
@@ -402,18 +437,19 @@
 	.answer_pad{
 		margin-left: 30rpx;
 		display: flex;
-		position: absolute;
-		margin-top: 20rpx;
+		/* position: absolute; */
+		padding: 20rpx;
 	}
 	.answer{
 		width: 90%;
 		margin-top: 30rpx;
 		margin-left: 5%;
-		height: 90rpx;
+		/* height: 90rpx; */
 		background-color: #EBEBEB;
 		border-radius: 10rpx;
 		/* padding: 10rpx 0; */
 		/* vertical-align: middle; */
+		/* z-index: 10; */
 	}
 	.topic{
 		margin-top: 30rpx;

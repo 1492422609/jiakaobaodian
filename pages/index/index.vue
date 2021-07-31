@@ -278,7 +278,7 @@
 							<view class="pop_bottom_2">
 								<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="widthFix" class="pop_bottom_photo"></image>
 								<view class="pop_bottom_text">
-									小车C1/C1/C3
+									火车A1/B2
 								</view>
 								<label class="radio" :checked="bianhao===1" @click="radio('1')">
 									<radio value="1" /><text></text>
@@ -287,7 +287,7 @@
 							<view class="pop_bottom_2">
 								<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="widthFix" class="pop_bottom_photo"></image>
 								<view class="pop_bottom_text">
-									小车C1/C1/C3
+								    客车A1/A3/B1
 								</view>
 								<label class="radio" :checked="bianhao===1" @click="radio('1')">
 									<radio value="1" /><text></text>
@@ -296,7 +296,7 @@
 							<view class="pop_bottom_2">
 								<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="widthFix" class="pop_bottom_photo"></image>
 								<view class="pop_bottom_text">
-									小车C1/C1/C3
+								    摩托车
 								</view>
 								<label class="radio" :checked="bianhao===1" @click="radio('1')">
 									<radio value="1" /><text></text>
