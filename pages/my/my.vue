@@ -23,8 +23,8 @@
 
 		<view class="diyilan">
 			<view class="diyilan_1">
-				<view class="diyilan_1_yincang">
-					<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="" class="diyilan_1_1"></image>
+				<view class="diyilan_1_yincang" :style="{backgroundImage:'url('+ima1+')'}">
+					<!-- <image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="" class="diyilan_1_1"></image> -->
 				</view>
 				<view class="diyilan_1_2">{{titile_1}}</view>
 				<view class="diyilan_1_3" @click="zhankai" >点击选择></view>
@@ -33,24 +33,24 @@
 		<view @click="isShow=false" >
 			<view class="diyilan_yincang" v-show="isShow">
 				<view class="diyilan_1">
-					<view class="diyilan_1_yincang">
-						<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="" class="diyilan_1_1"></image>
+					<view class="diyilan_1_yincang" :style="{backgroundImage:'url('+ima2+')'}">
+						<!-- <image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="" class="diyilan_1_1"></image> -->
 					</view>  
 					<view class="diyilan_1_2" @click="choose1">{{titile_2}}</view>
 				</view>
 			</view>
 			<view class="diyilan_yincang" v-show="isShow">
 				<view class="diyilan_1">
-					<view class="diyilan_1_yincang">
-						<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="" class="diyilan_1_1"></image>
+					<view class="diyilan_1_yincang" :style="{backgroundImage:'url('+ima3+')'}">
+						<!-- <image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="" class="diyilan_1_1"></image> -->
 					</view>
 					<view class="diyilan_1_2" @click="choose2">{{titile_3}}</view>
 				</view>
 			</view>
 			<view class="diyilan_yincang" v-show="isShow">
 				<view class="diyilan_1">
-					<view class="diyilan_1_yincang">
-						<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="" class="diyilan_1_1"></image>
+					<view class="diyilan_1_yincang" :style="{backgroundImage:'url('+ima4+')'}">
+						<!-- <image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="" class="diyilan_1_1"></image> -->
 					</view>
 					<view class="diyilan_1_2" @click="choose3">{{titile_4}}</view>
 				</view>
@@ -157,6 +157,11 @@
 	export default {
 		data() {
 			return {
+				ima:'',
+				ima1:'https://z3.ax1x.com/2021/07/22/W0QU58.png',
+				ima2:'https://z3.ax1x.com/2021/07/31/WXvUoT.png',
+				ima3:'https://z3.ax1x.com/2021/07/31/WXvNwV.png',
+				ima4:'https://z3.ax1x.com/2021/07/31/WXvte0.png',
 				titile:'',
 				titile_1:'小车C1/C2/C3',
 				titile_2:'货车A1/B2',
@@ -188,16 +193,25 @@
 				this.titile=this.titile_2;
 				this.titile_2=this.titile_1;
 				this.titile_1=this.titile;
+				this.ima=this.ima2;
+				this.ima2=this.ima1;
+				this.ima1=this.ima;
 			},
 			choose2(){
 				this.titile=this.titile_3;
 				this.titile_3=this.titile_1;
 				this.titile_1=this.titile;
+				this.ima=this.ima3;
+				this.ima3=this.ima1;
+				this.ima1=this.ima;
 			},
 			choose3(){
 				this.titile=this.titile_4;
 				this.titile_4=this.titile_1;
 				this.titile_1=this.titile;
+				this.ima=this.ima4;
+				this.ima4=this.ima1;
+				this.ima1=this.ima;
 			},
 			remind(){
 				if(this.tixing===false){
@@ -343,6 +357,12 @@
 	}
 	.diyilan_1_yincang{
 		margin-left: 40rpx;
+		background-image:url("https://z3.ax1x.com/2021/07/22/W0QU58.png");
+		width: 72rpx;
+		height: 72rpx;
+		/* background-color: #000000 */
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	.diyilan_1 {
 		margin-top: 10rpx;
@@ -351,7 +371,8 @@
 		/* justify-content: center; */
 		align-items: center;
 		padding: 25rpx;
-		font-size:35rpx ;		
+		font-size:35rpx ;
+
 	}
 	.diyilan {
 		background-color: white;

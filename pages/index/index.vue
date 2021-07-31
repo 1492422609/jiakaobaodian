@@ -276,16 +276,16 @@
 								</label>
 							</view>
 							<view class="pop_bottom_2">
-								<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="widthFix" class="pop_bottom_photo"></image>
+								<image src="https://z3.ax1x.com/2021/07/31/WXvUoT.png" mode="widthFix" class="pop_bottom_photo"></image>
 								<view class="pop_bottom_text">
-									火车A1/B2
+									货车/A1/B2
 								</view>
 								<label class="radio" :checked="bianhao===1" @click="radio('1')">
 									<radio value="1" /><text></text>
 								</label>
 							</view>
 							<view class="pop_bottom_2">
-								<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="widthFix" class="pop_bottom_photo"></image>
+								<image src="https://z3.ax1x.com/2021/07/31/WXvNwV.png" mode="widthFix" class="pop_bottom_photo"></image>
 								<view class="pop_bottom_text">
 								    客车A1/A3/B1
 								</view>
@@ -294,7 +294,7 @@
 								</label>
 							</view>
 							<view class="pop_bottom_2">
-								<image src="https://z3.ax1x.com/2021/07/22/W0QU58.png" mode="widthFix" class="pop_bottom_photo"></image>
+								<image src="https://z3.ax1x.com/2021/07/31/WXvte0.png" mode="widthFix" class="pop_bottom_photo"></image>
 								<view class="pop_bottom_text">
 								    摩托车
 								</view>
@@ -476,7 +476,7 @@
 		font-weight: 600;
 	}
 	.pop_line{
-		width: 107%;
+		width: 147%;
 		margin-top: 30rpx;
 		/* margin-left:10% ; */
 		height: 10rpx;
@@ -484,7 +484,8 @@
 		background-color: #F1F1F1
 	}
 	.radio{
-		margin-left: 100rpx;
+		margin-left: 520rpx;
+		position: absolute;
 	}
 	.pop_bottom_text{
 		font-size: 35rpx;
@@ -497,13 +498,13 @@
 	.pop_bottom_2{
 		margin-top: 30rpx;
 		display: flex;
-		justify-content: center;
+		/* justify-content: center; */
 		align-items: center;
 	}
 	.pop_bottom_1{
 		/* margin-top: 20rpx; */
 		display: flex;
-		justify-content: center;
+		/* justify-content: center; */
 		align-items: center;
 	}
 	.pop_bottom{
