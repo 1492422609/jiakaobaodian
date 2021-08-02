@@ -271,7 +271,7 @@
 								<view class="pop_bottom_text">
 									小车C1/C1/C3
 								</view>
-								<label class="radio" :checked="bianhao===1" @click="radio('1')">
+								<label class="radio" :checked="bianhao==1" @click="radio('1')">
 									<radio value="1" /><text></text>
 								</label>
 							</view>
@@ -280,7 +280,7 @@
 								<view class="pop_bottom_text">
 									货车/A1/B2
 								</view>
-								<label class="radio" :checked="bianhao===1" @click="radio('1')">
+								<label class="radio" :checked="bianhao==1" @click="radio('1')">
 									<radio value="1" /><text></text>
 								</label>
 							</view>
@@ -289,7 +289,7 @@
 								<view class="pop_bottom_text">
 								    客车A1/A3/B1
 								</view>
-								<label class="radio" :checked="bianhao===1" @click="radio('1')">
+								<label class="radio" :checked="bianhao==1" @click="radio('1')">
 									<radio value="1" /><text></text>
 								</label>
 							</view>
@@ -298,7 +298,7 @@
 								<view class="pop_bottom_text">
 								    摩托车
 								</view>
-								<label class="radio" :checked="bianhao===1" @click="radio('1')">
+								<label class="radio" :checked="bianhao==1" @click="radio('1')">
 									<radio value="1" /><text></text>
 								</label>
 							</view>
@@ -373,9 +373,9 @@
 		methods: {
 			radio(e){
 				this.bianhao=e;
-				this.timer = setTimeout( () => {
-				    this.pop=false		
-				}, 300)
+				// this.timer = setTimeout( () => {
+				//     this.pop=false		
+				// }, 300)
 			},
 			pop1(){
 				this.pop=false;

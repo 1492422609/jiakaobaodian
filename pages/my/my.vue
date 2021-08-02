@@ -105,6 +105,7 @@
 				</view>
 			</view>
 		</view>
+		<view style="height: 125rpx;"></view>
 		<view v-show="activation" >
 			<view class="protect" @click="lijikaitong">
 				<view class="Activation_code" @click.stop="stop">
@@ -388,7 +389,7 @@
 
 	.bg_total {
 		background-color: #F3F3F3;
-		height: 1300rpx;
+		/* height: 1300rpx; */
 		width: 100%;
 	}
 

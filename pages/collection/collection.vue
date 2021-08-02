@@ -181,4 +181,78 @@
 		text-align: center;
 	    margin-top: 40rpx; 
 	}
+	
+	/* 收藏 */
+	.box_vip{
+		width: 250rpx;
+		height: 50rpx;
+		line-height: 50rpx;
+		background-image: linear-gradient(to right, #FFBC00 , #FFE6A2);
+		text-align: center;
+		border-radius: 30rpx;
+	}
+	.jinnang{
+		width: 90%;
+		margin-top: 30rpx;
+		margin-left: 5%;
+		
+	}
+	.answer_text{
+		height: 50rpx;
+		line-height: 50rpx;
+	}
+	
+	.answer_num{
+		width: 50rpx;
+		height: 50rpx;
+		line-height: 50rpx;
+		text-align: center;
+		border-radius: 50%;
+		/* background-color: black; */
+	}
+	.parse {
+		width: 90%;
+		/* height: 100rpx; */
+		margin-top: 30rpx;
+		margin-left: 5%;
+		padding: 30rpx;
+		background-color: #F0F7FF;
+		border-radius: 10rpx;
+		/* display: flex; */
+		/* vertical-align: middle; */
+	}
+	
+	.verticl {
+		height: 70rpx;
+		width: 5rpx;
+		background-color: #EBEBEB;
+		margin: 0 30rpx;
+	}
+	
+	.yes_text2 {
+		text-align: center;
+		color: #0CAF00;
+		font-size: 45rpx;
+	}
+	
+	.yes_text {
+		font-size: 20rpx;
+	}
+	
+	.yes {
+		/* width: 15%; */
+		/* display: flex; */
+	}
+	
+	.green_line {
+		width: 90%;
+		margin-top: 30rpx;
+		margin-left: 5%;
+		padding: 15rpx 15rpx 5rpx 40rpx;
+		background-color: #DCFFDA;
+		border-radius: 10rpx;
+		display: flex;
+		/* vertical-align: middle; */
+	}
+	
 </style>

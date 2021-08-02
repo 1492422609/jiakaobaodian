@@ -126,6 +126,12 @@
 }
 .diyilan_1_yincang{
 	margin-left: 40rpx;
+	background-image:url("https://z3.ax1x.com/2021/07/22/W0QU58.png");
+	width: 72rpx;
+	height: 72rpx;
+	/* background-color: #000000 */
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .diyilan_1 {
 	margin-top: 10rpx;
@@ -153,7 +159,7 @@
 }
 .bg_total {
 	background-color: #F3F3F3;
-	height: 1300rpx;
+	/* height: 1300rpx; */
 	width: 100%;
 }
 .mingpian {

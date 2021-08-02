@@ -80,7 +80,7 @@
 	font-weight: 600;
 }
 .pop_line{
-	width: 107%;
+	width: 147%;
 	margin-top: 30rpx;
 	/* margin-left:10% ; */
 	height: 10rpx;
@@ -88,7 +88,8 @@
 	background-color: #F1F1F1
 }
 .radio{
-	margin-left: 100rpx;
+	margin-left: 520rpx;
+	position: absolute;
 }
 .pop_bottom_text{
 	font-size: 35rpx;
@@ -103,9 +104,7 @@
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
+	/* justify-content: center; */
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	        align-items: center;
@@ -115,9 +114,7 @@
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
+	/* justify-content: center; */
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	        align-items: center;

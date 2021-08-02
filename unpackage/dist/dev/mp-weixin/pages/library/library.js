@@ -304,9 +304,148 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   methods: {
+    questio: function questio(index) {
+      console.log(index);
+      this.quesiton_now = this.quesiton_now + 1;
+      var that = this;
+      that.qus = that.qus + 1;
+      var i = that.qus;
+      if (that.qus > 9) {
+        that.remind_change = true;
+        that.qus = 0;
+        that.quesiton_now = 1;
+        var _i = that.qus;
+        that.eq_question_type = that.eq_question_type + 1;
+        if (that.eq_question_type > 3) {
+          that.eq_question_type = 1;
+        }
+        uni.request({
+          url: 'http://jiakao.maiwd.cn/api/question/random_ten',
+          method: "POST",
+          data: {
+            token: '465456ugi',
+            eq_car_type: 1,
+            eq_subject: 1,
+            eq_question_type: that.eq_question_type },
+
+          success: function success(res) {
+            // let i = this.qus
+            that.quesiton_tot = res.data.data;
+            that.topic = that.quesiton_tot[_i].question_content;
+            // console.log(JSON.stringify(that.quesiton_tot[i].question_content))
+            that.question[0].ques = that.quesiton_tot[_i].option1;
+            that.question[1].ques = that.quesiton_tot[_i].option2;
+            that.question[2].ques = that.quesiton_tot[_i].option3;
+            that.question[3].ques = that.quesiton_tot[_i].option4;
+            if (that.question[3].ques == null) {
+              that.question[0].ques = '对';
+              that.question[1].ques = '错';
+              that.question[2].ques = '';
+              that.question[3].ques = '';
+            }
+            if (res.data.data[_i].question_type == 1) {
+              that.type = '单选';
+            } else if (res.data.data[_i].question_type == 2) {
+              that.type = '多选';
+            } else {
+              that.type = '判断';
+            }
+          } });
+
+
+      } else {
+        that.topic = that.quesiton_tot[i].question_content;
+        that.question[0].ques = that.quesiton_tot[i].option1;
+        that.question[1].ques = that.quesiton_tot[i].option2;
+        that.question[2].ques = that.quesiton_tot[i].option3;
+        that.question[3].ques = that.quesiton_tot[i].option4;
+        if (that.question[3].ques == null) {
+          that.question[0].ques = '对';
+          that.question[1].ques = '错';
+          that.question[2].ques = '';
+          that.question[3].ques = '';
+        }
+      }
+
+    },
     font_size5: function font_size5() {
       this.font_size = 50;
     },
@@ -330,6 +469,9 @@ var _default =
         this.box = false;
         this.jinnang = true;
       }
+      if (this.jiyi == true) {
+        this.jinnang = false;
+      }
     },
     fons: function fons() {
       if (this.size == false) {
@@ -339,45 +481,93 @@ var _default =
         this.size = false;
         this.jinnang = true;
       }
+      if (this.jiyi == true) {
+        this.jinnang = false;
+      }
     },
     stop: function stop() {
 
+    },
+    remind_change1: function remind_change1() {
+      that.remind_change = false;
+    },
+    change: function change() {
+      this.none = this.bgc;
+      this.bgc = this.ccc;
+      this.ccc = this.none;
+
+      this.text = this.text1;
+      this.text1 = this.text2;
+      this.text2 = this.text;
+
+      if (this.jinnang == true) {
+        this.jinnang = false;
+      } else this.jinnang = true;
+
+      if (this.jiyi == false) {
+        this.jiyi = true;
+      } else this.jiyi = false;
+
+    },
+    con: function con() {
+      uni.switchTab({
+        url: '/pages/index/index' });
+
     } },
 
-  onLoad: function onLoad() {
+  onLoad: function onLoad() {var _this = this;
     var that = this;
     // console.log(that.question[0].id);
     uni.request({
-      url: 'http://jiakao.maiwd.cn/api/question/index',
+      url: 'http://jiakao.maiwd.cn/api/question/random_ten',
       method: "POST",
       data: {
-        page: 6,
-        limit: 10,
-        token: '5rew5',
+        token: '465456ugi',
         eq_car_type: 1,
-        eq_subject: 1 },
+        eq_subject: 1,
+        eq_question_type: that.eq_question_type },
 
       success: function success(res) {
-        // zzconsole.log(res.data.data.data[5].question_type)
-        that.topic = res.data.data.data[3].question_content;
-        that.question[0].ques = res.data.data.data[3].option1;
-        that.question[1].ques = res.data.data.data[3].option2;
-        that.question[2].ques = res.data.data.data[3].option3;
-        that.question[3].ques = res.data.data.data[3].option4;
-        if (res.data.data.data[5].question_type == 1) {
+        var i = _this.qus;
+        that.quesiton_tot = res.data.data;
+        that.topic = that.quesiton_tot[i].question_content;
+        // console.log(JSON.stringify(that.quesiton_tot[i]))
+        that.question[0].ques = that.quesiton_tot[i].option1;
+        that.question[1].ques = that.quesiton_tot[i].option2;
+        that.question[2].ques = that.quesiton_tot[i].option3;
+        that.question[3].ques = that.quesiton_tot[i].option4;
+        if (that.question[3].ques == null) {
+          that.question[0].ques = '对';
+          that.question[1].ques = '错';
+          that.question[2].ques = '';
+          that.question[3].ques = '';
+        }
+        if (res.data.data[i].question_type == 1) {
           that.type = '单选';
-        } else if (res.data.data.data[5].question_type == 1) {
+        } else if (res.data.data[i].question_type == 2) {
           that.type = '多选';
         } else {
           that.type = '判断';
         }
       } });
 
+
   },
   data: function data() {
     return {
-      font_size1: 30,
-      font_size: 40,
+      remind_change: false,
+      eq_question_type: 1,
+      quesion_1: '',
+      question_tot: '',
+      qus: 0,
+      jiyi: false,
+      bgc: 'white',
+      ccc: '#2C5DFE',
+      none: '',
+      chan: true,
+      pages: 17,
+      // font_size1:30,
+      font_size: 35,
       size: false,
       topic: '',
       type: '',

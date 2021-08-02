@@ -1,6 +1,24 @@
 <template>
 	<view>
-		<!-- :class="size=true?'protect':''" @click="fons" -->
+<view class="header_header" >
+	    	<view style="display: flex;">
+					<view class="" style="color: black;padding-top: 70rpx;margin-left: 30rpx;font-size: 40rpx;" @click="con">
+					    返回
+					</view>
+					<view class="header_middle">
+						<view class="header_middle_left" :style="{'background-color':ccc,color:bgc,}"  @click="change">
+							学习
+						</view>
+						<view class="header_middle_right"  :style="{color:ccc,'background-color':bgc,}" @click="change">
+							记忆
+						</view>
+					</view>
+	    	</view>
+	    </view>	
+				
+		
+		
+		
 		<view class="top"  >
 			<view class="top_1" >
 				<view class="quesiton_now">
@@ -26,7 +44,7 @@
 				</view>
 			</view>
 		</view>
-	    <view class="topic">
+	    <view class="topic" :style="{'font-size':font_size+'rpx'}">
 	    	{{topic}}
 	    </view>
 		<view class="answer_total">
@@ -38,12 +56,64 @@
 					<view class="answer_text">
 				        {{qut.que}}
 					</view> -->
-					<view class="">
+					<view :style="{margin: qut.ques=== '' ? '0rpx' : '20rpx'}">
+						 <!-- <view :style="{color:item.age<18?'#ccc':''}"></view> -->
 						{{qut.ques}}
 					</view>
 				</view>
 			</view>				
 		</view>
+		
+		<view v-show="jiyi"  style="margin-bottom: 100rpx;">
+			<view class="green_line">
+				<view class="yes">
+					<view class="yes_text">
+						正确答案
+					</view>
+					<view class="yes_text2">
+						A
+					</view>
+				</view>
+				<view class="verticl"></view>
+				<view class="yes">
+					<view class="yes_text">
+						我的答案
+					</view>
+					<view class="yes_text2">
+						A
+					</view>
+				</view>
+			</view>
+			<view class="jinnang2">
+				<view style="display: flex;">
+					<image src="https://z3.ax1x.com/2021/07/29/WbPMxs.png" mode="widthFix" style="width: 40rpx;margin-right: 20rpx;"></image>
+					<view>
+						技巧锦囊
+					</view>
+				</view>
+				<view style="display: flex;margin: 30rpx 0;justify-content: space-between;" >
+					<view style="" :style="{'font-size':font_size+'rpx'}">
+						本体技巧本体技巧本体技巧
+					</view>
+					<view class="box_vip">
+						开通会员后查看
+					</view>
+				</view>
+			</view>
+			<view class="parse">
+				<view class="">
+					<view style="color: #525252;">
+						解析
+					</view>
+					<view :style="{'font-size':font_size+'rpx'}">
+						正确答案是A，无证驾驶可构成危险驾驶罪
+					</view>
+				</view>
+			</view>		
+			
+		</view>
+		
+		
 		<view class="jinnang" v-show="jinnang">
 			<view class="jinnang_1">
 				<image src="https://z3.ax1x.com/2021/07/26/WRqnXT.png" mode="widthFix" style="width: 100rpx;margin-top: 10rpx;"></image>
@@ -169,6 +239,11 @@
 	    		</view>				
 	    	</view>
 	    </view>
+	    <view class="remind_change"  v-show="remind_change" @click="remind_change1">
+	    	<image src="https://z3.ax1x.com/2021/08/02/fSrWjJ.png" mode="widthFix" style="width: 500rpx;position: absolute;margin-top: -150rpx;"></image>
+	    </view>
+	
+	
 	</view>
 </template>
 
@@ -176,38 +251,68 @@
 	export default {
 		methods: {
 			questio(index){
+				console.log(index)
 				this.quesiton_now=this.quesiton_now+1
 				var that=this
-				console.log(index);
-				this.pages=this.pages+1;
-				// console.log(this.pages)
-				uni.request({
-					url:'http://jiakao.maiwd.cn/api/question/index',
-					method:"POST",
-					data:{
-						page:this.pages,
-						limit:10,
-						token:'5rew5',
-						eq_car_type:1,
-						eq_subject:1,
-					},
-					success:(res)=>{
-						// zzconsole.log(res.data.data.data[5].question_type)
-						that.topic=(res.data.data.data[3].question_content)
-						 that.question[0].ques=res.data.data.data[3].option1
-						 that.question[1].ques=res.data.data.data[3].option2
-						 that.question[2].ques=res.data.data.data[3].option3
-						 that.question[3].ques=res.data.data.data[3].option4
-						 if(res.data.data.data[5].question_type==1){
-							 that.type='单选'			
-						 }else if(res.data.data.data[5].question_type==1){
-							 that.type='多选'	
-						 }else{
-							 that.type='判断'
-						 }
+				that.qus=that.qus+1;
+				let i = that.qus;
+				if(that.qus>9){
+					that.remind_change=true
+					that.qus=0
+					that.quesiton_now=1
+					let i = that.qus;
+					that.eq_question_type=that.eq_question_type+1;
+					if(that.eq_question_type>3){
+						that.eq_question_type=1
 					}
-				})
-			
+					uni.request({
+						url:'http://jiakao.maiwd.cn/api/question/random_ten',
+						method:"POST",
+						data:{
+							token:'465456ugi',
+							eq_car_type:1,
+							eq_subject:1,
+							eq_question_type:that.eq_question_type,
+						},
+						success:(res)=>{
+							// let i = this.qus
+							that.quesiton_tot=res.data.data
+							that.topic=that.quesiton_tot[i].question_content
+							// console.log(JSON.stringify(that.quesiton_tot[i].question_content))
+							 that.question[0].ques=that.quesiton_tot[i].option1
+							 that.question[1].ques=that.quesiton_tot[i].option2
+							 that.question[2].ques=that.quesiton_tot[i].option3
+							 that.question[3].ques=that.quesiton_tot[i].option4
+							 if(that.question[3].ques==null){
+							 	 that.question[0].ques='对'
+							 	 that.question[1].ques='错'
+							 	 that.question[2].ques=''
+							 	 that.question[3].ques=''
+							 }
+							 if(res.data.data[i].question_type==1){
+							 	 that.type='单选'			
+							 }else if(res.data.data[i].question_type==2){
+							 	 that.type='多选'	
+							 }else{
+							 	 that.type='判断'
+							 }
+						}
+					})
+							
+				}else{
+					that.topic=that.quesiton_tot[i].question_content
+					that.question[0].ques=that.quesiton_tot[i].option1
+					that.question[1].ques=that.quesiton_tot[i].option2
+					that.question[2].ques=that.quesiton_tot[i].option3
+					that.question[3].ques=that.quesiton_tot[i].option4
+					if(that.question[3].ques==null){
+						 that.question[0].ques='对'
+						 that.question[1].ques='错'
+						 that.question[2].ques=''
+						 that.question[3].ques=''
+					}
+				}
+					
 			},
 			font_size5(){
 				this.font_size=50
@@ -232,6 +337,9 @@
 					this.box=false;
 					this.jinnang=true;
 				}
+				if(this.jiyi==true){
+					this.jinnang=false
+				}
 			},
 			fons(){
 				if(this.size==false){
@@ -241,46 +349,93 @@
 					this.size=false;
 					this.jinnang=true;
 				}
+				if(this.jiyi==true){
+					this.jinnang=false
+				}
 			},
 			stop(){
 				
-			}
+			},
+			remind_change1(){
+				that.remind_change=false
+			},
+			change(){
+				this.none=this.bgc;
+				this.bgc=this.ccc;
+				this.ccc=this.none;
+				
+				this.text=this.text1;
+				this.text1=this.text2;
+				this.text2=this.text;
+				
+				if(this.jinnang==true){
+					this.jinnang=false
+				}else this.jinnang=true
+				
+				if(this.jiyi==false){
+					this.jiyi=true
+				}else this.jiyi=false
+			
+			},
+			con(){
+				uni.switchTab({
+				url: '/pages/index/index'
+				});
+			},
 		},
 		onLoad(){
 			var that=this;
 			// console.log(that.question[0].id);
 			uni.request({
-				url:'http://jiakao.maiwd.cn/api/question/index',
+				url:'http://jiakao.maiwd.cn/api/question/random_ten',
 				method:"POST",
 				data:{
-					page:this.pages,
-					limit:10,
-					token:'5rew5',
+					token:'465456ugi',
 					eq_car_type:1,
 					eq_subject:1,
+					eq_question_type:that.eq_question_type,
 				},
 				success:(res)=>{
-					// zzconsole.log(res.data.data.data[5].question_type)
-					that.topic=(res.data.data.data[3].question_content)
-					 that.question[0].ques=res.data.data.data[3].option1
-					 that.question[1].ques=res.data.data.data[3].option2
-					 that.question[2].ques=res.data.data.data[3].option3
-					 that.question[3].ques=res.data.data.data[3].option4
-					 if(res.data.data.data[5].question_type==1){
-						 that.type='单选'			
-					 }else if(res.data.data.data[5].question_type==1){
-						 that.type='多选'	
+					let i = this.qus
+					that.quesiton_tot=res.data.data
+					that.topic=that.quesiton_tot[i].question_content
+					// console.log(JSON.stringify(that.quesiton_tot[i]))
+					 that.question[0].ques=that.quesiton_tot[i].option1
+					 that.question[1].ques=that.quesiton_tot[i].option2
+					 that.question[2].ques=that.quesiton_tot[i].option3
+					 that.question[3].ques=that.quesiton_tot[i].option4
+					 if(that.question[3].ques==null){
+						 that.question[0].ques='对'
+						 that.question[1].ques='错'
+						 that.question[2].ques=''
+						 that.question[3].ques=''
+					 }
+					 if(res.data.data[i].question_type==1){
+					 	 that.type='单选'			
+					 }else if(res.data.data[i].question_type==2){
+					 	 that.type='多选'	
 					 }else{
-						 that.type='判断'
+					 	 that.type='判断'
 					 }
 				}
 			})
+		
 		},
 		data() {
 			return {
-				pages:5,
-				font_size1:30,
-				font_size:40,
+				remind_change:false,
+				eq_question_type:1,
+				quesion_1:'',
+				question_tot:'',
+				qus:0,
+				jiyi:false,
+				bgc:'white',
+				ccc:'#2C5DFE',
+				none:'',
+				chan:true,
+				pages:17,
+				// font_size1:30,
+				font_size:35,
 				size:false,
 				topic:'',
 				type:'',
@@ -438,7 +593,7 @@
 		margin-left: 30rpx;
 		display: flex;
 		/* position: absolute; */
-		padding: 20rpx;
+		
 	}
 	.answer{
 		width: 90%;
@@ -528,4 +683,115 @@
 		margin-top: 20rpx;
 		display: flex;
 	}
+	.header_middle_right{
+		width: 100rpx;
+		height: 58rpx;
+		text-align: center;
+		border-radius:0 10rpx 10rpx 0;
+		/* border:  1rpx #000000 solid; */
+	}
+	.header_middle_left{
+		/* background-color: white; */
+		width: 50%;
+		/* height: 80rpx; */
+		text-align: center;
+		border-radius: 10rpx  0 0 10rpx;
+		/* border:  1rpx #000000 solid; */
+	}
+	.header_middle{
+		position: absolute;
+		width: 200rpx;
+		height: 60rpx;
+		line-height: 60rpx;
+		border-radius: 10rpx;
+		margin-left: 35%;
+		margin-top: 50rpx;
+		background-color: white;
+		display: flex;
+		justify-content: space-between;
+		/* padding: 0 50rpx; */
+		/* border:  2rpx solid black; */
+		/* box-sizing: border-box; */
+		/* z-index: 10; */
+		/* overflow: hidden; */
+	}
+	.header_header{
+		width: 100%;
+		height: 133rpx;
+		background-color: #F8F8F8;
+	
+	}
+	/* 收藏 */
+	.box_vip{
+		width: 250rpx;
+		height: 50rpx;
+		line-height: 50rpx;
+		background-image: linear-gradient(to right, #FFBC00 , #FFE6A2);
+		text-align: center;
+		border-radius: 30rpx;
+	}
+	.jinnang2{
+		width: 90%;
+		margin-top: 30rpx;
+		margin-left: 5%;
+		
+	}
+	.answer_text{
+		height: 50rpx;
+		line-height: 50rpx;
+	}
+	
+	.answer_num{
+		width: 50rpx;
+		height: 50rpx;
+		line-height: 50rpx;
+		text-align: center;
+		border-radius: 50%;
+		/* background-color: black; */
+	}
+	.parse {
+		width: 90%;
+		/* height: 100rpx; */
+		margin-top: 30rpx;
+		margin-left: 5%;
+		padding: 30rpx;
+		background-color: #F0F7FF;
+		border-radius: 10rpx;
+		/* display: flex; */
+		/* vertical-align: middle; */
+	}
+	
+	.verticl {
+		height: 70rpx;
+		width: 5rpx;
+		background-color: #EBEBEB;
+		margin: 0 30rpx;
+	}
+	
+	.yes_text2 {
+		text-align: center;
+		color: #0CAF00;
+		font-size: 45rpx;
+	}
+	
+	.yes_text {
+		font-size: 20rpx;
+	}
+	
+	.yes {
+		/* width: 15%; */
+		/* display: flex; */
+	}
+	
+	.green_line {
+		width: 90%;
+		margin-top: 30rpx;
+		margin-left: 5%;
+		padding: 15rpx 15rpx 5rpx 40rpx;
+		background-color: #DCFFDA;
+		border-radius: 10rpx;
+		display: flex;
+		/* vertical-align: middle; */
+	}
+	
 </style>

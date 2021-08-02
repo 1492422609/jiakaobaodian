@@ -526,11 +526,11 @@ var _default =
 
   },
   methods: {
-    radio: function radio(e) {var _this = this;
+    radio: function radio(e) {
       this.bianhao = e;
-      this.timer = setTimeout(function () {
-        _this.pop = false;
-      }, 300);
+      // this.timer = setTimeout( () => {
+      //     this.pop=false		
+      // }, 300)
     },
     pop1: function pop1() {
       this.pop = false;
