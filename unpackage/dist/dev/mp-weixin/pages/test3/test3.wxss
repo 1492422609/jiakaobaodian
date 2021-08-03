@@ -1,25 +1,8 @@
 
-.answer_text{
-   	margin-left: 30rpx;
-	word-wrap: break-word;
-	word-break: break-all;
+.fruits {
+    margin: 50rpx;
 }
-.answer_pad{
-   	padding: 30rpx;
-   	display: -webkit-box;
-   	display: -webkit-flex;
-   	display: flex;
-   	/* position: absolute; */
-   	margin-top: 20rpx;
-}
-.answer{
-   	width: 90%;
-   	margin-top: 30rpx;
-   	margin-left: 5%;
-   	/* height: 90rpx; */
-   	background-color: #EBEBEB;
-   	border-radius: 10rpx;
-   	/* padding: 10rpx 0; */
-   	/* vertical-align: middle; */
+.addclass {
+    color: red;
 }
 

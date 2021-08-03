@@ -87,6 +87,8 @@
 				</view>
 			</view>
 		</view>		
+	
+	
 		<view class="footer">
 			<view class="line"></view>
 			<view style="display: flex; padding-bottom: 20rpx;">
@@ -192,7 +194,7 @@
 				quesiton_total: '/10',
 				 isactive:0,
 				question: [{
-					jud:'yes',
+					// jud:'yes',
 					id: 'A',
 					que: '我说数量的开发基斯里夫结束了'
 				}, {
@@ -200,7 +202,7 @@
 					id: 'B',
 					que: '我说数量的开发基斯里夫结束了'
 				}, {
-					// jud:'no',
+					jud:'yes',
 					id: 'C',
 					que: '我说数量的开发基斯里夫结束了'
 				}, {

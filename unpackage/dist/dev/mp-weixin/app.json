@@ -18,7 +18,10 @@
     "pages/wrong_question/wrong_question",
     "pages/vip/vip",
     "pages/analysis/analysis",
-    "pages/grades_final/grades_final"
+    "pages/grades_final/grades_final",
+    "pages/tikuxuexi/tikuxuexi",
+    "pages/monikaoshi/monikaoshi",
+    "pages/test/test"
   ],
   "subPackages": [],
   "window": {
@@ -48,5 +51,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap71.json"
+  "sitemapLocation": "sitemap12.json"
 }

@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uCircleProgress: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-circle-progress/u-circle-progress */ "uview-ui/components/u-circle-progress/u-circle-progress").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-circle-progress/u-circle-progress.vue */ 197))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-circle-progress/u-circle-progress */ "uview-ui/components/u-circle-progress/u-circle-progress").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-circle-progress/u-circle-progress.vue */ 213))
     }
   }
 } catch (e) {
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -218,13 +218,37 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
+  onLoad: function onLoad() {var _this = this;
+    uni.request({
+      url: 'http://jiakao.maiwd.cn/api/turn/user_turn_progress',
+      method: "POST",
+      header: {
+        'content-type': 'application/json', //自定义请求头信息
+        "token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d' },
+
+      data: {
+        car_type: 1,
+        subject: 1 },
+
+      success: function success(res) {
+        console.log(JSON.stringify(res.data));
+        _this.total = res.data.data.total_question_count;
+        _this.yizuo = res.data.data.make_question_count;
+        _this.weizuo = res.data.data.not_make_question_count;
+        _this.part = 100 - _this.weizuo / _this.total * 100;
+      } });
+
+  },
   data: function data() {
     return {
       part: 50,
-      total: 1300 };
+      total: 0,
+      yizuo: 0,
+      weizuo: 0 };
 
   },
   methods: {} };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

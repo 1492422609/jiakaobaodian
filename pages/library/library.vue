@@ -1,24 +1,16 @@
 <template>
 	<view>
-<view class="header_header" >
+        <view class="header_header" >
 	    	<view style="display: flex;">
-					<view class="" style="color: black;padding-top: 70rpx;margin-left: 30rpx;font-size: 40rpx;" @click="con">
+					<view  style="color: black;padding-top: 70rpx;margin-left: 30rpx;font-size: 40rpx;" @click="con">
 					    返回
 					</view>
-					<view class="header_middle">
-						<view class="header_middle_left" :style="{'background-color':ccc,color:bgc,}"  @click="change">
-							学习
-						</view>
-						<view class="header_middle_right"  :style="{color:ccc,'background-color':bgc,}" @click="change">
-							记忆
-						</view>
+					<view style="margin-top: 70rpx;font-size: 40rpx;margin-left: 110rpx;">
+						{{countdown_time}}
 					</view>
 	    	</view>
 	    </view>	
-				
-		
-		
-		
+						
 		<view class="top"  >
 			<view class="top_1" >
 				<view class="quesiton_now">
@@ -125,7 +117,7 @@
 	    <view class="footer">
 	    	<view class="line"></view>
 			<view  style="display: flex; padding-bottom: 20rpx;">
-				<view class="collection">
+				<view class="collection" @click="shoucang">
 					<image src="https://z3.ax1x.com/2021/07/26/WWSz1H.png" mode="widthFix" class="footer_photo"></image>
 					<view class="footer_text">
 						收藏
@@ -239,9 +231,7 @@
 	    		</view>				
 	    	</view>
 	    </view>
-	    <view class="remind_change"  v-show="remind_change" @click="remind_change1">
-	    	<image src="https://z3.ax1x.com/2021/08/02/fSrWjJ.png" mode="widthFix" style="width: 500rpx;position: absolute;margin-top: -150rpx;"></image>
-	    </view>
+
 	
 	
 	</view>
@@ -251,20 +241,19 @@
 	export default {
 		methods: {
 			questio(index){
-				console.log(index)
 				this.quesiton_now=this.quesiton_now+1
 				var that=this
 				that.qus=that.qus+1;
 				let i = that.qus;
 				if(that.qus>9){
-					that.remind_change=true
 					that.qus=0
-					that.quesiton_now=1
+					// that.quesiton_now=1
 					let i = that.qus;
-					that.eq_question_type=that.eq_question_type+1;
-					if(that.eq_question_type>3){
-						that.eq_question_type=1
+					that.danxuan=that.danxuan+1
+					if(that.danxuan>1){
+						that.eq_question_type=that.eq_question_type+2
 					}
+					console.log(that.eq_question_type)
 					uni.request({
 						url:'http://jiakao.maiwd.cn/api/question/random_ten',
 						method:"POST",
@@ -312,7 +301,7 @@
 						 that.question[3].ques=''
 					}
 				}
-					
+				this.cunchu()	
 			},
 			font_size5(){
 				this.font_size=50
@@ -356,8 +345,55 @@
 			stop(){
 				
 			},
-			remind_change1(){
-				that.remind_change=false
+			cunchu(){
+				uni.request({
+					url: 'http://jiakao.maiwd.cn/api/mock_record/add',
+					method: "POST",
+					header: {
+						'content-type': 'application/json' ,//自定义请求头信息
+						"token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d',
+					},
+					data: {
+						mock_id:1,
+						user_answer:'A',
+						question_id:1315
+					},
+					success: (res) => {
+						console.log(JSON.stringify(res.data))
+					
+					}
+				})
+			},
+			shoucang(){
+				let i=this.qus
+				if(this.shoucang1==true){
+					this.shoucang1=false
+				}else this.shoucang1=true
+				if(this.shoucang1==true){
+					uni.request({
+						url:'http://jiakao.maiwd.cn/api/user_question_collect/collect',
+						method:"POST",
+						data:{
+							token:'465456ugi',
+							question_id:this.quesiton_tot[i].id
+						},
+						success:(res)=>{
+							// console.log('4')
+							}
+					})
+				}else{
+					uni.request({
+						url:'http://jiakao.maiwd.cn/api/user_question_collect/cancel_collect',
+						method:"POST",
+						data:{
+							token:'465456ugi',
+							question_id:this.quesiton_tot[i].id
+						},
+						success:(res)=>{
+							// console.log('5')
+							}
+					})
+				}
 			},
 			change(){
 				this.none=this.bgc;
@@ -382,10 +418,38 @@
 				url: '/pages/index/index'
 				});
 			},
+			countTime() {
+				//获取当前时间  
+				var date = new Date();
+				var now = date.getTime();
+				var leftTime = this.time - now;
+				if (leftTime <= 0) {
+					this.countdown_time = "已结束"
+					return
+				}
+				var d, h, m, s;
+				if (leftTime >= 0) {
+					  // d = Math.floor(leftTime/1000/60/60/24); 
+					h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
+					m = Math.floor(leftTime / 1000 / 60 % 60);
+					s = Math.floor(leftTime / 1000 % 60);
+				}
+				//将倒计时赋值到view中  
+				this.countdown_time = `倒计时${m}分${s}秒`
+				//递归每秒调用countTime方法，显示动态时间效果  
+				var timers = setTimeout(this.countTime, 1000);
+			},
+		
+		},
+		mounted(){
+			this.countTime()
 		},
 		onLoad(){
 			var that=this;
 			// console.log(that.question[0].id);
+			var date = new Date();
+			var now = date.getTime();
+			that.time=now+2700000
 			uni.request({
 				url:'http://jiakao.maiwd.cn/api/question/random_ten',
 				method:"POST",
@@ -394,6 +458,7 @@
 					eq_car_type:1,
 					eq_subject:1,
 					eq_question_type:that.eq_question_type,
+					limit:60
 				},
 				success:(res)=>{
 					let i = this.qus
@@ -423,7 +488,10 @@
 		},
 		data() {
 			return {
-				remind_change:false,
+				shoucang1:false,
+				danxuan:0,
+				countdown_time: '倒计时00分00秒',
+				time:'',
 				eq_question_type:1,
 				quesion_1:'',
 				question_tot:'',
@@ -442,7 +510,7 @@
 				jinnang:true,
 				box:false,
 				quesiton_now:1,
-				quesiton_total:'/10',
+				quesiton_total:'/100',
 				question:[{
 					ques:''
 				},{
@@ -535,7 +603,7 @@
 	.footer_question{
 		display: flex;
 		margin-top:20rpx ;
-		margin-left: 75rpx;
+		margin-left: 65rpx;
 		font-size: 33rpx;
 	}
 	.yon{
@@ -683,38 +751,7 @@
 		margin-top: 20rpx;
 		display: flex;
 	}
-	.header_middle_right{
-		width: 100rpx;
-		height: 58rpx;
-		text-align: center;
-		border-radius:0 10rpx 10rpx 0;
-		/* border:  1rpx #000000 solid; */
-	}
-	.header_middle_left{
-		/* background-color: white; */
-		width: 50%;
-		/* height: 80rpx; */
-		text-align: center;
-		border-radius: 10rpx  0 0 10rpx;
-		/* border:  1rpx #000000 solid; */
-	}
-	.header_middle{
-		position: absolute;
-		width: 200rpx;
-		height: 60rpx;
-		line-height: 60rpx;
-		border-radius: 10rpx;
-		margin-left: 35%;
-		margin-top: 50rpx;
-		background-color: white;
-		display: flex;
-		justify-content: space-between;
-		/* padding: 0 50rpx; */
-		/* border:  2rpx solid black; */
-		/* box-sizing: border-box; */
-		/* z-index: 10; */
-		/* overflow: hidden; */
-	}
+	
 	.header_header{
 		width: 100%;
 		height: 133rpx;

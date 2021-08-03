@@ -195,9 +195,32 @@ var _default =
       none: '',
       chan: true,
       bg_1: 'https://z3.ax1x.com/2021/07/26/WflSld.png',
-      text1: '全部错题',
-      text2: '收藏题目',
-      text: '' };
+      text1: '收藏题目',
+      text2: '全部错题',
+      text: '',
+      cuoti: 50,
+      shoucang: 50,
+      ti: 30 };
+
+  },
+  onLoad: function onLoad() {var _this = this;
+    uni.request({
+      url: 'http://jiakao.maiwd.cn/api/count/count',
+      method: "POST",
+      header: {
+        'content-type': 'application/json', //自定义请求头信息
+        "token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d' },
+
+      data: {
+        token: '58d7014b-16d0-48c4-b959-e71e0ae17c7d',
+        car_type: 1,
+        subject: 1 },
+
+      success: function success(res) {
+        console.log(JSON.stringify(res.data));
+        _this.cuoti = res.data.data.collect_count;
+        _this.shoucang = res.data.data.wrong_count;
+      } });
 
   },
   methods: {
@@ -214,6 +237,10 @@ var _default =
       this.text = this.text1;
       this.text1 = this.text2;
       this.text2 = this.text;
+
+      this.ti = this.shoucang;
+      this.shoucang = this.cuoti;
+      this.cuoti = this.ti;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

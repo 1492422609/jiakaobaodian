@@ -32,7 +32,7 @@
 	    	    	{{text1}}
 	    	    </view>
 				<view class="middle_text2">
-					50
+					{{shoucang}}
 				</view>
 				<view class="middle_text3">
 					道
@@ -63,10 +63,33 @@
 				none:'',
 				chan:true,
 				bg_1:'https://z3.ax1x.com/2021/07/26/WflSld.png',
-				text1:'全部错题',
-				text2:'收藏题目',
-				text:''
+				text1:'收藏题目',
+				text2:'全部错题',
+				text:'',
+				cuoti:50,
+				shoucang:50,
+				ti:30
 			}
+		},
+		onLoad(){
+			uni.request({
+				url: 'http://jiakao.maiwd.cn/api/count/count',
+				method: "POST",
+				header: {
+					'content-type': 'application/json' ,//自定义请求头信息
+					"token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d',
+				},
+				data: {
+					token:'58d7014b-16d0-48c4-b959-e71e0ae17c7d',
+					car_type: 1,
+					subject: 1
+				},
+				success: (res) => {
+					console.log(JSON.stringify(res.data))
+				    this.cuoti=res.data.data.collect_count
+					this.shoucang=res.data.data.wrong_count
+				}
+			})
 		},
 		methods: {
 			con(){
@@ -82,6 +105,10 @@
 				this.text=this.text1;
 				this.text1=this.text2;
 				this.text2=this.text;
+				
+				this.ti=this.shoucang
+				this.shoucang=this.cuoti
+				this.cuoti=this.ti
 			},
 			
 		}
@@ -183,76 +210,5 @@
 	}
 	
 	/* 收藏 */
-	.box_vip{
-		width: 250rpx;
-		height: 50rpx;
-		line-height: 50rpx;
-		background-image: linear-gradient(to right, #FFBC00 , #FFE6A2);
-		text-align: center;
-		border-radius: 30rpx;
-	}
-	.jinnang{
-		width: 90%;
-		margin-top: 30rpx;
-		margin-left: 5%;
-		
-	}
-	.answer_text{
-		height: 50rpx;
-		line-height: 50rpx;
-	}
-	
-	.answer_num{
-		width: 50rpx;
-		height: 50rpx;
-		line-height: 50rpx;
-		text-align: center;
-		border-radius: 50%;
-		/* background-color: black; */
-	}
-	.parse {
-		width: 90%;
-		/* height: 100rpx; */
-		margin-top: 30rpx;
-		margin-left: 5%;
-		padding: 30rpx;
-		background-color: #F0F7FF;
-		border-radius: 10rpx;
-		/* display: flex; */
-		/* vertical-align: middle; */
-	}
-	
-	.verticl {
-		height: 70rpx;
-		width: 5rpx;
-		background-color: #EBEBEB;
-		margin: 0 30rpx;
-	}
-	
-	.yes_text2 {
-		text-align: center;
-		color: #0CAF00;
-		font-size: 45rpx;
-	}
-	
-	.yes_text {
-		font-size: 20rpx;
-	}
-	
-	.yes {
-		/* width: 15%; */
-		/* display: flex; */
-	}
-	
-	.green_line {
-		width: 90%;
-		margin-top: 30rpx;
-		margin-left: 5%;
-		padding: 15rpx 15rpx 5rpx 40rpx;
-		background-color: #DCFFDA;
-		border-radius: 10rpx;
-		display: flex;
-		/* vertical-align: middle; */
-	}
 	
 </style>

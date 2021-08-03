@@ -23,8 +23,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/library/library",
-          "pathName": "pages/library/library",
+          "name": "pages/collection/collection",
+          "pathName": "pages/collection/collection",
           "scene": null
         }
       ]

@@ -314,6 +314,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
 var _default =
 {
   data: function data() {
@@ -324,7 +326,7 @@ var _default =
       quesiton_total: '/10',
       isactive: 0,
       question: [{
-        jud: 'yes',
+        // jud:'yes',
         id: 'A',
         que: '我说数量的开发基斯里夫结束了' },
       {
@@ -332,7 +334,7 @@ var _default =
         id: 'B',
         que: '我说数量的开发基斯里夫结束了' },
       {
-        // jud:'no',
+        jud: 'yes',
         id: 'C',
         que: '我说数量的开发基斯里夫结束了' },
       {

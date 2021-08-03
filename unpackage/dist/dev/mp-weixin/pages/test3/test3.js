@@ -140,42 +140,44 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      items: [{
+        name: '苹果',
+        price: '5$' },
 
+      {
+        name: '香蕉',
+        price: "3$" },
+
+      {
+        name: '西瓜',
+        price: '4$' },
+
+      {
+        name: '桃子',
+        price: '3$' },
+
+      {
+        name: '草莓',
+        price: "6$" },
+
+      {
+        name: '樱桃',
+        price: '10$' }],
+
+
+      isactive: '' };
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    onclick: function onclick(index) {
+      console.log(index);
+      //将点击的元素的索引赋值给bian变量
+      this.isactive = index;
+    } } };exports.default = _default;
 
 /***/ }),
 

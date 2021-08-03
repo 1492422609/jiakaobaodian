@@ -369,34 +369,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   methods: {
     questio: function questio(index) {
-      console.log(index);
       this.quesiton_now = this.quesiton_now + 1;
       var that = this;
       that.qus = that.qus + 1;
       var i = that.qus;
       if (that.qus > 9) {
-        that.remind_change = true;
         that.qus = 0;
-        that.quesiton_now = 1;
+        // that.quesiton_now=1
         var _i = that.qus;
-        that.eq_question_type = that.eq_question_type + 1;
-        if (that.eq_question_type > 3) {
-          that.eq_question_type = 1;
+        that.danxuan = that.danxuan + 1;
+        if (that.danxuan > 1) {
+          that.eq_question_type = that.eq_question_type + 2;
         }
+        console.log(that.eq_question_type);
         uni.request({
           url: 'http://jiakao.maiwd.cn/api/question/random_ten',
           method: "POST",
@@ -444,7 +433,7 @@ var _default =
           that.question[3].ques = '';
         }
       }
-
+      this.cunchu();
     },
     font_size5: function font_size5() {
       this.font_size = 50;
@@ -488,8 +477,55 @@ var _default =
     stop: function stop() {
 
     },
-    remind_change1: function remind_change1() {
-      that.remind_change = false;
+    cunchu: function cunchu() {
+      uni.request({
+        url: 'http://jiakao.maiwd.cn/api/mock_record/add',
+        method: "POST",
+        header: {
+          'content-type': 'application/json', //自定义请求头信息
+          "token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d' },
+
+        data: {
+          mock_id: 1,
+          user_answer: 'A',
+          question_id: 1315 },
+
+        success: function success(res) {
+          console.log(JSON.stringify(res.data));
+
+        } });
+
+    },
+    shoucang: function shoucang() {
+      var i = this.qus;
+      if (this.shoucang1 == true) {
+        this.shoucang1 = false;
+      } else this.shoucang1 = true;
+      if (this.shoucang1 == true) {
+        uni.request({
+          url: 'http://jiakao.maiwd.cn/api/user_question_collect/collect',
+          method: "POST",
+          data: {
+            token: '465456ugi',
+            question_id: this.quesiton_tot[i].id },
+
+          success: function success(res) {
+            // console.log('4')
+          } });
+
+      } else {
+        uni.request({
+          url: 'http://jiakao.maiwd.cn/api/user_question_collect/cancel_collect',
+          method: "POST",
+          data: {
+            token: '465456ugi',
+            question_id: this.quesiton_tot[i].id },
+
+          success: function success(res) {
+            // console.log('5')
+          } });
+
+      }
     },
     change: function change() {
       this.none = this.bgc;
@@ -513,11 +549,39 @@ var _default =
       uni.switchTab({
         url: '/pages/index/index' });
 
+    },
+    countTime: function countTime() {
+      //获取当前时间  
+      var date = new Date();
+      var now = date.getTime();
+      var leftTime = this.time - now;
+      if (leftTime <= 0) {
+        this.countdown_time = "已结束";
+        return;
+      }
+      var d, h, m, s;
+      if (leftTime >= 0) {
+        // d = Math.floor(leftTime/1000/60/60/24); 
+        h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
+        m = Math.floor(leftTime / 1000 / 60 % 60);
+        s = Math.floor(leftTime / 1000 % 60);
+      }
+      //将倒计时赋值到view中  
+      this.countdown_time = "\u5012\u8BA1\u65F6".concat(m, "\u5206").concat(s, "\u79D2");
+      //递归每秒调用countTime方法，显示动态时间效果  
+      var timers = setTimeout(this.countTime, 1000);
     } },
 
+
+  mounted: function mounted() {
+    this.countTime();
+  },
   onLoad: function onLoad() {var _this = this;
     var that = this;
     // console.log(that.question[0].id);
+    var date = new Date();
+    var now = date.getTime();
+    that.time = now + 2700000;
     uni.request({
       url: 'http://jiakao.maiwd.cn/api/question/random_ten',
       method: "POST",
@@ -525,7 +589,8 @@ var _default =
         token: '465456ugi',
         eq_car_type: 1,
         eq_subject: 1,
-        eq_question_type: that.eq_question_type },
+        eq_question_type: that.eq_question_type,
+        limit: 60 },
 
       success: function success(res) {
         var i = _this.qus;
@@ -555,7 +620,10 @@ var _default =
   },
   data: function data() {
     return {
-      remind_change: false,
+      shoucang1: false,
+      danxuan: 0,
+      countdown_time: '倒计时00分00秒',
+      time: '',
       eq_question_type: 1,
       quesion_1: '',
       question_tot: '',
@@ -574,7 +642,7 @@ var _default =
       jinnang: true,
       box: false,
       quesiton_now: 1,
-      quesiton_total: '/10',
+      quesiton_total: '/100',
       question: [{
         ques: '' },
       {

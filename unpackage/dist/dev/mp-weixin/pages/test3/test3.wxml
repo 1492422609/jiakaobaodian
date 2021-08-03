@@ -1,1 +1,1 @@
-<view><view class="answer"><view class="answer_pad"><view class="answer_num">damm</view><view class="answer_text">dammqwehodqwohedwqehdqwoedhqwoqihedqwoiqwiwoheqeiwheoidwqehwqoiehhewqehkqw</view></view></view></view>
+<view><block wx:for="{{items}}" wx:for-item="item" wx:for-index="index"><view data-event-opts="{{[['tap',[['onclick',[index]]]]]}}" class="{{['fruits',index===isactive?'addclass':'']}}" bindtap="__e"><text>{{item.name}}</text><text>{{item.price}}</text></view></block></view>
