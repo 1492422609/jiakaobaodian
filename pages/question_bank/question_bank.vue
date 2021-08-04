@@ -52,7 +52,7 @@
 			</view>
 		</view>
 		<view class="bottom">
-			<navigator url="../library/library">
+			<navigator url="../tikuxuexi/tikuxuexi">
 				<view class="test1">
 					开始答题
 				</view>

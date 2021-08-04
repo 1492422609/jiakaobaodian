@@ -1,8 +1,12 @@
 
+.ddd{
+		color: blue;
+}
 .fruits {
-    margin: 50rpx;
+        margin: 50rpx;
+		color: black;
 }
 .addclass {
-    color: red;
+        color: red;
 }
 

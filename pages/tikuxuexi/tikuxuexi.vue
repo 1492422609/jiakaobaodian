@@ -45,19 +45,22 @@
 		<view class="topic" :style="{'font-size':font_size+'rpx'}">
 			{{topic}}
 		</view>
+		<view v-show="ima">
+			<image :src=imag mode="widthFix" style="width: 90%;margin-left: 5%;"></image>
+		</view>
 		<view class="answer_total">
 			<!-- :style="qut.answer===index_1 ? 'background-color:#DCFFDA':''" @click="cli(index)" -->
-				<view class="answer" v-for="(qut,index) in question" :ikey="index" :style="{'font-size':font_size+'rpx'  }">
-					<!-- <view :style="qut.answer===index_1 ? 'background-color:#DCFFDA':''" @click="cli(index)"> -->
-						<view class="answer_pad">
-							<view :style="{margin: qut.ques=== '' ? '0rpx' : '20rpx'}">
-								{{qut.ques}}
-							</view>
-						</view>
-					<!-- </view> -->
+			<view class="answer" v-for="(qut,index) in question" :ikey="index" :style="{'font-size':font_size+'rpx'  }">
+				<!-- <view :style="qut.answer===index_1 ? 'background-color:#DCFFDA':''" @click="cli(index)"> -->
+				<view class="answer_pad">
+					<view :style="{margin: qut.ques=== '' ? '0rpx' : '20rpx'}">
+						{{qut.ques}}
+					</view>
 				</view>
+				<!-- </view> -->
+			</view>
 		</view>
-			<!-- </view> -->
+		<!-- </view> -->
 
 		<view v-show="jiyi" style="margin-bottom: 100rpx;">
 			<view class="green_line">
@@ -191,40 +194,44 @@
 		</view>
 		<view class="size" v-show="size">
 			<view @click="fons">
-				<view class="size_bottom" @click.stop="stop">
+				<view class="size_bottom">
 					<view>
 						<view class="bottom_topic">
 							字体大小设置
 						</view>
 						<view class="line_5"></view>
 					</view>
-					<view class="size_bottom_text">
-						<view class="">
-							小号
+					<view @click.stop="stop">
+
+						<view class="size_bottom_text">
+							<view class="">
+								小号
+							</view>
+							<view class="">
+								标准
+							</view>
+							<view class="">
+								特大
+							</view>
 						</view>
-						<view class="">
-							标准
+						<view style="display:flex ;margin-left:100rpx  ;">
+							<view class="">
+								A
+							</view>
+							<view :class="font_size==30 ? 'size_cir1':'size_cir'" @click="font_size0"></view>
+							<view class="size-line"></view>
+							<view :class="font_size==35 ? 'size_cir1':'size_cir'" @click="font_size2"></view>
+							<view class="size-line"></view>
+							<view :class="font_size==40 ? 'size_cir1':'size_cir'" @click="font_size3"></view>
+							<view class="size-line"></view>
+							<view :class="font_size==45 ? 'size_cir1':'size_cir'" @click="font_size4"></view>
+							<view class="size-line"></view>
+							<view :class="font_size==50 ? 'size_cir1':'size_cir'" @click="font_size5"></view>
+							<view style="font-size: 50rpx;">
+								A
+							</view>
 						</view>
-						<view class="">
-							特大
-						</view>
-					</view>
-					<view style="display:flex ;margin-left:100rpx  ;">
-						<view class="">
-							A
-						</view>
-						<view :class="font_size==30 ? 'size_cir1':'size_cir'" @click="font_size0"></view>
-						<view class="size-line"></view>
-						<view :class="font_size==35 ? 'size_cir1':'size_cir'" @click="font_size2"></view>
-						<view class="size-line"></view>
-						<view :class="font_size==40 ? 'size_cir1':'size_cir'" @click="font_size3"></view>
-						<view class="size-line"></view>
-						<view :class="font_size==45 ? 'size_cir1':'size_cir'" @click="font_size4"></view>
-						<view class="size-line"></view>
-						<view :class="font_size==50 ? 'size_cir1':'size_cir'" @click="font_size5"></view>
-						<view style="font-size: 50rpx;">
-							A
-						</view>
+
 					</view>
 				</view>
 			</view>
@@ -233,17 +240,17 @@
 			<image src="https://z3.ax1x.com/2021/08/02/fSrWjJ.png" mode="widthFix"
 				style="width: 500rpx;position: absolute;margin-top: -150rpx;"></image>
 		</view>
-
+		<view v-show="protect" class="protect"></view>
 
 	</view>
 </template>
 
 <script>
-	var that=this
+	var that = this
 	export default {
 		methods: {
-			cli(index){
-				that.index_1=index
+			cli(index) {
+				that.index_1 = index
 				console.log(that.index_1)
 			},
 			questio(index) {
@@ -284,6 +291,12 @@
 					// 	that.question[3].ques = ''
 					// }
 				}
+				if (that.quesiton_tot[i].pic_image === null) {
+					that.ima = false
+				} else {
+					that.imag = that.quesiton_tot[i].pic_image
+					that.ima = true
+				}
 
 			},
 			font_size5() {
@@ -305,9 +318,11 @@
 				if (this.box === false) {
 					this.box = true;
 					this.jinnang = false;
+					this.protect = true
 				} else {
 					this.box = false;
 					this.jinnang = true;
+					this.protect = false
 				}
 				if (this.jiyi == true) {
 					this.jinnang = false
@@ -317,9 +332,11 @@
 				if (this.size == false) {
 					this.size = true;
 					this.jinnang = false;
+					this.protect = true
 				} else {
 					this.size = false;
 					this.jinnang = true;
+					this.protect = false
 				}
 				if (this.jiyi == true) {
 					this.jinnang = false
@@ -328,38 +345,42 @@
 			stop() {
 
 			},
-			request_1(){
+			request_1() {
 				// var that =this
 				uni.request({
 					url: 'http://jiakao.maiwd.cn/api/question/random_ten',
 					method: "POST",
+					header: {
+						'content-type': 'application/json', //自定义请求头信息
+						"token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d',
+					},
 					data: {
-						token: '465456ugi',
+						// token: '58d7014b-16d0-48c4-b959-e71e0ae17c7d',
 						eq_car_type: 1,
-						eq_subject: 1,
+						eq_subject: getApp().globalData.subject,
 						eq_question_type: that.eq_question_type,
-						limit:10
+						limit: 10
 					},
 					success: (res) => {
 						let i = this.qus
 						that.quesiton_tot = res.data.data
 						that.topic = that.quesiton_tot[i].question_content
 						console.log(JSON.stringify(that.quesiton_tot[i].answer))
-						that.answer=that.quesiton_tot[i].answer
+						that.answer = that.quesiton_tot[i].answer
 						that.question[0].ques = that.quesiton_tot[i].option1
 						that.question[1].ques = that.quesiton_tot[i].option2
 						that.question[2].ques = that.quesiton_tot[i].option3
 						that.question[3].ques = that.quesiton_tot[i].option4
-						if(that.quesiton_tot[i].answer=='A'){
-							that.question[0].answer=0
-						}else if(that.quesiton_tot[i].answer=='B'){
-							that.question[0].answer=1
-						}else if(that.quesiton_tot[i].answer=='C'){
-							that.question[0].answer=2
-						}else if(that.quesiton_tot[i].answer=='D'){
-							that.question[0].answer=3
+						if (that.quesiton_tot[i].answer == 'A') {
+							that.question[0].answer = 0
+						} else if (that.quesiton_tot[i].answer == 'B') {
+							that.question[0].answer = 1
+						} else if (that.quesiton_tot[i].answer == 'C') {
+							that.question[0].answer = 2
+						} else if (that.quesiton_tot[i].answer == 'D') {
+							that.question[0].answer = 3
 						}
-							// console.log(that.question[0].answer)
+						// console.log(that.question[0].answer)
 						if (that.question[3].ques == null) {
 							that.question[0].ques = '对'
 							that.question[1].ques = '错'
@@ -373,9 +394,15 @@
 						} else {
 							that.type = '判断'
 						}
+						if (that.quesiton_tot[i].pic_image === null) {
+							that.ima = false
+						} else {
+							that.imag = that.quesiton_tot[i].pic_image
+							that.ima = true
+						}
 					}
 				})
-				
+
 			},
 			remind_change1() {
 				that.remind_change = false
@@ -405,15 +432,18 @@
 			},
 		},
 		onLoad() {
-			 that = this;
+			that = this;
 			// console.log(that.question[0].id);
 			that.request_1()
 		},
 		data() {
 			return {
-				index_1:'',
-				answer_or:'',
-				answer:'',
+				ima: false,
+				imag: '',
+				protect: false,
+				index_1: '',
+				answer_or: '',
+				answer: '',
 				remind_change: false,
 				eq_question_type: 1,
 				quesion_1: '',
@@ -436,16 +466,16 @@
 				quesiton_total: '/10',
 				question: [{
 					ques: '',
-					answer:''
+					answer: ''
 				}, {
 					ques: '',
-					answer:''
+					answer: ''
 				}, {
 					ques: '',
-					answer:''
+					answer: ''
 				}, {
 					ques: '',
-					answer:''
+					answer: ''
 				}]
 			}
 		},
@@ -454,6 +484,17 @@
 </script>
 
 <style scoped>
+	.protect {
+		width: 100%;
+		height: 1700rpx;
+		background: rgba(0, 0, 0, 0.4);
+		position: fixed;
+		top: 0rpx;
+		/* margin-top: -800rpx; */
+		overflow: hidden;
+		z-index: 10;
+	}
+
 	.size-line {
 		width: 120rpx;
 		height: 5rpx;
@@ -503,18 +544,9 @@
 		width: 100%;
 		height: 350rpx;
 		background-color: white;
+		z-index: 200;
 	}
 
-	.protect {
-		width: 100%;
-		/* height: 1700rpx; */
-		background: rgba(0, 0, 0, 0.4);
-		position: absolute;
-		z-index: 10;
-		/* margin-top: -800rpx; */
-		overflow: hidden;
-		z-index: 500;
-	}
 
 	.circulal {
 		width: 50rpx;
@@ -585,7 +617,8 @@
 		bottom: 0;
 		/* height: 100rpx; */
 		width: 100%;
-		background-color: white
+		background-color: white;
+		z-index: 200
 	}
 
 	.jinnang {

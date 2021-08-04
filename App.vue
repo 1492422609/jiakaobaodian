@@ -6,14 +6,19 @@
 
 <script>
 	export default {
+		globalData:{
+			token1:'58d7014b-16d0-48c4-b959-e71e0ae17c7d',
+			car_type:'1',
+			subject:'1',
+		},
 		onLaunch: function() {
-			console.log('App Launch')
+			// console.log('App Launch')
 		},
 		onShow: function() {
-			console.log('App Show')
+			// console.log('App Show')
 		},
 		onHide: function() {
-			console.log('App Hide')
+			// console.log('App Hide')
 		}
 	}
 </script>

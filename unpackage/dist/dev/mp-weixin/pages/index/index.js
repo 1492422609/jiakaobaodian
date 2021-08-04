@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uTabsSwiper: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 206))
+      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 214))
     }
   }
 } catch (e) {
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -521,16 +521,36 @@ var _default =
 
   },
   onLoad: function onLoad() {
-    //
+    uni.request({
+      url: 'http://jiakao.maiwd.cn/addons/third/api/getAuthUrl',
+      method: "POST",
+      header: {
+        'content-type': 'application/json' //自定义请求头信息
+        // "token": getApp().globalData.token1,
+      },
+      data: {
+        url: 'http://jiakao.maiwd.cn/api/user/third?platform=wechat',
+        platform: 'wechat' },
+
+      success: function success(res) {
+
+        var http1 = res.data.data;
+        console.log(JSON.stringify(res.data.data));
+        // plus.runtime.openURL(http1)
+        // window.location.href="https://cn.bing.com/"
+      } });
 
 
   },
   methods: {
-    radio: function radio(e) {
+    radio: function radio(e) {var _this = this;
       this.bianhao = e;
-      // this.timer = setTimeout( () => {
-      //     this.pop=false		
-      // }, 300)
+      console.log(this.bianhao);
+      getApp().globalData.car_type = this.bianhao;
+      console.log(getApp().globalData.car_type);
+      this.timer = setTimeout(function () {
+        _this.pop = false;
+      }, 300);
     },
     pop1: function pop1() {
       this.pop = false;
@@ -554,6 +574,7 @@ var _default =
         this.prom = true;
       } else this.prom = false;
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

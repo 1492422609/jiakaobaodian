@@ -1,55 +1,114 @@
 <template>
-	<view>
-		<view>
-			<u-tabs-swiper ref="uTabs" :list="list" :current="current" @change="tabsChange" :is-scroll="false"
-				swiperWidth="750">
-			</u-tabs-swiper>
-		</view>
-		<swiper :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish">
-			<swiper-itemclass="swiper-item"v-for="(item, index) in tabs" :key="index">
-				<scroll-viewscroll-ystyle="height:800rpx;width:100%;" @scrolltolower="onreachBottom">
-					damm
-				</scroll-view>
-			</swiper-item>
-		</swiper>
-	</view>
+        <view>
+                <view v-for="(item,i) in lists" :key="i">
+                        <view><view :class="['aaa', type == 1 ? 'aaa' : type == 2 ? 'active' : 'classB']" @click="dianwo(item)">{{item.op1}}</view></view>
+                        <view><view :class="['aaa', type1 == 1 ? 'aaa' : type1 == 2 ? 'active' : 'classB']" @click="dianwo1(item)">{{item.op2}}</view></view>
+                        <view><view :class="['aaa', type2 == 1 ? 'aaa' : type2 == 2 ? 'active' : 'classB']" @click="dianwo2(item)">{{item.op3}}</view></view>
+                        <view><view :class="['aaa', type3 == 1 ? 'aaa' : type3 == 2 ? 'active' : 'classB']" @click="dianwo3(item)">{{item.op4}}</view></view>
+                </view>
+        </view>
+        
 </template>
+
 <script>
-	export default {
-		data() {
-				return {
-					list: [{
-						name: '十年'
-					}, {
-						name: '青春'
-					}, {
-						name: '之约'
-					}],
-					// 因为内部的滑动机制限制，请将tabs组件和swiper组件的current用不同变量赋值
-					current: 0, // tabs组件的current值，表示当前活动的tab选项
-					swiperCurrent: 0, // swiper组件的current值，表示当前那个swiper-item是活动的
-				};
-			},
-			methods: {
-				// tabs通知swiper切换
-				tabsChange(index) {
-					this.swiperCurrent = index;
-				},
-				// swiper-item左右移动，通知tabs的滑块跟随移动
-				transition(e) {
-					let dx = e.detail.dx;
-					this.$refs.uTabs.setDx(dx);
-				},
-				// 由于swiper的内部机制问题，快速切换swiper不会触发dx的连续变化，需要在结束时重置状态
-				// swiper滑动结束，分别设置tabs和swiper的状态
-				animationfinish(e) {
-					let current = e.detail.current;
-					this.$refs.uTabs.setFinishCurrent(current);
-					this.swiperCurrent = current;
-					this.current = current;
-				},
-				// scroll-view到底部加载更多
-				onreachBottom() {}
-			}
-	};
+export default {
+        data() {
+                return {
+                        type: 1,
+                        type1: 1,
+                        type2: 1,
+                        type3: 1,
+                        
+                        currentIndex: 0,
+                        lists: [
+                                {
+                                        op1: 'A',
+                                        op2: 'B',
+                                        op3: 'C',
+                                        op4: 'D',
+                                        answer: 'A'
+                                }
+                        ]
+                };
+        },
+
+        methods: {
+                dianwo(e) {
+                        if(e.op1===e.answer){
+                                this.type=2
+                                this.type1=1
+                                this.type2=1
+                                this.type3=1
+                        }else{
+                                this.type=3
+                                this.type1=1
+                                this.type2=1
+                                this.type3=1
+                        }
+                },
+                dianwo1(e){
+                        if(e.op2===e.answer){
+                                this.type1=2
+                                this.type=1
+                                this.type2=1
+                                this.type3=1
+                        }else{
+                                this.type1=3
+                                this.type=1
+                                this.type2=1
+                                this.type3=1
+                        }
+                },
+                dianwo2(e){
+                        if(e.op3===e.answer){
+                                this.type2=2
+                                this.type=1
+                                this.type1=1
+                                this.type3=1
+                        }else{
+                                this.type2=3
+                                this.type=1
+                                this.type1=1
+                                this.type3=1
+                        }
+                },
+                dianwo3(e){
+                        if(e.op3===e.answer){
+                                this.type3=2
+                                this.type=1
+                                this.type1=1
+                                this.type2=1
+                        }else{
+                                this.type3=3
+                                this.type=1
+                                this.type1=1
+                                this.type2=1
+                        }
+                }
+                        
+        }
+};
 </script>
+
+<style lang="scss" scoped>
+page {
+        background: #f2f3f6;
+}
+
+.aaa {
+        background: red;
+        width: 100%;
+        height: 50rpx;
+        margin-top: 10rpx;
+}
+.calssA {
+        background-color: blue;
+}
+.active {
+        background-color: black;
+}
+
+.classB {
+        background-color: yellow;
+}
+</style>

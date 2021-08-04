@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="protect">
-			<view class="box">
+			<view class="box1">
 				<view class="box_title">
 					考试不合格
 				</view>
@@ -106,7 +106,7 @@
 		font-size: 40rpx;
 		padding-top: 25rpx;
 	}
-	.box{
+	.box1{
 		width: 90%;
 		height: 500rpx;
 		background-color: white;

@@ -6,46 +6,16 @@
 					按内容类型
 				</view>
 				<view class="row_2">
-					1200题
+					<!-- 1200题 -->
 				</view>
 			</view>
 			<view class="row_3" >
 				
-				<view class="row_text" >
-					文字题
+				<view class="row_text" v-for="item in list">
+					{{item.name}}
 				</view>
-				<view class="row_text">
-					正确题
-				</view>
-				<view class="row_text">
-					正确题
-				</view>
+				
 			
-			</view>
-			<view class="line"></view>
-		</view>
-		<view class="row" >
-			<view class="row_header">
-				<view class="row_1">
-					按内容类型
-				</view>
-				<view class="row_2">
-					1200题
-				</view>
-			</view>
-			<view class="row_3">
-				<view class="row_text" >
-					文字题
-				</view>
-				<view class="row_text">
-					正确题
-				</view>
-				<view class="row_text">
-					正确题
-				</view>
-				<view class="row_text">
-					正确题
-				</view>
 			</view>
 			<view class="line"></view>
 		</view>
@@ -57,8 +27,23 @@
 	export default {
 		data() {
 			return {
-				
+				list:[]
 			}
+		},
+		onLoad(){
+			var that=this
+			uni.request({
+				url:'http://jiakao.maiwd.cn/api/special/index',
+				method:"POST",
+				data:{
+					eq_car_type:getApp().globalData.car_type,
+					eq_subject:getApp().globalData.subject
+				},
+				success:(res)=>{
+					console.log(res.data.data)
+					    that.list=res.data.data
+					}
+			})
 		},
 		methods: {
 			

@@ -370,6 +370,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 var that = void 0;var _default =
 {
@@ -416,6 +423,12 @@ var that = void 0;var _default =
         // 	that.question[3].ques = ''
         // }
       }
+      if (that.quesiton_tot[i].pic_image === null) {
+        that.ima = false;
+      } else {
+        that.imag = that.quesiton_tot[i].pic_image;
+        that.ima = true;
+      }
 
     },
     font_size5: function font_size5() {
@@ -437,9 +450,11 @@ var that = void 0;var _default =
       if (this.box === false) {
         this.box = true;
         this.jinnang = false;
+        this.protect = true;
       } else {
         this.box = false;
         this.jinnang = true;
+        this.protect = false;
       }
       if (this.jiyi == true) {
         this.jinnang = false;
@@ -449,9 +464,11 @@ var that = void 0;var _default =
       if (this.size == false) {
         this.size = true;
         this.jinnang = false;
+        this.protect = true;
       } else {
         this.size = false;
         this.jinnang = true;
+        this.protect = false;
       }
       if (this.jiyi == true) {
         this.jinnang = false;
@@ -465,10 +482,14 @@ var that = void 0;var _default =
       uni.request({
         url: 'http://jiakao.maiwd.cn/api/question/random_ten',
         method: "POST",
+        header: {
+          'content-type': 'application/json', //自定义请求头信息
+          "token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d' },
+
         data: {
-          token: '465456ugi',
+          // token: '58d7014b-16d0-48c4-b959-e71e0ae17c7d',
           eq_car_type: 1,
-          eq_subject: 1,
+          eq_subject: getApp().globalData.subject,
           eq_question_type: that.eq_question_type,
           limit: 10 },
 
@@ -504,6 +525,12 @@ var that = void 0;var _default =
             that.type = '多选';
           } else {
             that.type = '判断';
+          }
+          if (that.quesiton_tot[i].pic_image === null) {
+            that.ima = false;
+          } else {
+            that.imag = that.quesiton_tot[i].pic_image;
+            that.ima = true;
           }
         } });
 
@@ -543,6 +570,9 @@ var that = void 0;var _default =
   },
   data: function data() {
     return {
+      ima: false,
+      imag: '',
+      protect: false,
       index_1: '',
       answer_or: '',
       answer: '',

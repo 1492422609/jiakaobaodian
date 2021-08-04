@@ -369,71 +369,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
+//
+
+var that = void 0;var _default =
 {
   methods: {
+    cli: function cli(index) {
+      that.index_1 = index;
+      console.log(that.index_1);
+    },
     questio: function questio(index) {
+      // console.log(index)
       this.quesiton_now = this.quesiton_now + 1;
       var that = this;
       that.qus = that.qus + 1;
       var i = that.qus;
+      // if(index==0){
+      // 	that.answer_or='A'
+      // }else if(index==1){
+      // 	that.answer_or='B'
+      // }else if(index==2){
+      // 	that.answer_or='C'
+      // }else if(index==3){
+      // 	that.answer_or='D'
+      // 	// console.log(that.answer_or)
+      // }
       if (that.qus > 9) {
+        that.remind_change = true;
         that.qus = 0;
-        // that.quesiton_now=1
-        var _i = that.qus;
-        that.danxuan = that.danxuan + 1;
-        if (that.danxuan > 1) {
-          that.eq_question_type = that.eq_question_type + 2;
+        that.quesiton_now = 1;
+        that.eq_question_type = that.eq_question_type + 1;
+        if (that.eq_question_type > 3) {
+          that.eq_question_type = 1;
         }
-        console.log(that.eq_question_type);
-        uni.request({
-          url: 'http://jiakao.maiwd.cn/api/question/random_ten',
-          method: "POST",
-          data: {
-            token: '465456ugi',
-            eq_car_type: 1,
-            eq_subject: 1,
-            eq_question_type: that.eq_question_type },
-
-          success: function success(res) {
-            // let i = this.qus
-            that.quesiton_tot = res.data.data;
-            that.topic = that.quesiton_tot[_i].question_content;
-            // console.log(JSON.stringify(that.quesiton_tot[i].question_content))
-            that.question[0].ques = that.quesiton_tot[_i].option1;
-            that.question[1].ques = that.quesiton_tot[_i].option2;
-            that.question[2].ques = that.quesiton_tot[_i].option3;
-            that.question[3].ques = that.quesiton_tot[_i].option4;
-            if (that.question[3].ques == null) {
-              that.question[0].ques = '对';
-              that.question[1].ques = '错';
-              that.question[2].ques = '';
-              that.question[3].ques = '';
-            }
-            if (res.data.data[_i].question_type == 1) {
-              that.type = '单选';
-            } else if (res.data.data[_i].question_type == 2) {
-              that.type = '多选';
-            } else {
-              that.type = '判断';
-            }
-          } });
-
-
+        that.request_1();
       } else {
-        that.topic = that.quesiton_tot[i].question_content;
-        that.question[0].ques = that.quesiton_tot[i].option1;
-        that.question[1].ques = that.quesiton_tot[i].option2;
-        that.question[2].ques = that.quesiton_tot[i].option3;
-        that.question[3].ques = that.quesiton_tot[i].option4;
-        if (that.question[3].ques == null) {
-          that.question[0].ques = '对';
-          that.question[1].ques = '错';
-          that.question[2].ques = '';
-          that.question[3].ques = '';
-        }
+        // that.topic = that.quesiton_tot[i].question_content
+        // that.question[0].ques = that.quesiton_tot[i].option1
+        // that.question[1].ques = that.quesiton_tot[i].option2
+        // that.question[2].ques = that.quesiton_tot[i].option3
+        // that.question[3].ques = that.quesiton_tot[i].option4
+        // if (that.question[3].ques == null) {
+        // 	that.question[0].ques = '对'
+        // 	that.question[1].ques = '错'
+        // 	that.question[2].ques = ''
+        // 	that.question[3].ques = ''
+        // }
       }
-      this.cunchu();
+
     },
     font_size5: function font_size5() {
       this.font_size = 50;
@@ -477,55 +460,57 @@ var _default =
     stop: function stop() {
 
     },
-    cunchu: function cunchu() {
+    request_1: function request_1() {var _this = this;
+      // var that =this
       uni.request({
-        url: 'http://jiakao.maiwd.cn/api/mock_record/add',
+        url: 'http://jiakao.maiwd.cn/api/question/random_ten',
         method: "POST",
-        header: {
-          'content-type': 'application/json', //自定义请求头信息
-          "token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d' },
-
         data: {
-          mock_id: 1,
-          user_answer: 'A',
-          question_id: 1315 },
+          token: '465456ugi',
+          eq_car_type: 1,
+          eq_subject: 1,
+          eq_question_type: that.eq_question_type,
+          limit: 10 },
 
         success: function success(res) {
-          console.log(JSON.stringify(res.data));
-
+          var i = _this.qus;
+          that.quesiton_tot = res.data.data;
+          that.topic = that.quesiton_tot[i].question_content;
+          console.log(JSON.stringify(that.quesiton_tot[i].answer));
+          that.answer = that.quesiton_tot[i].answer;
+          that.question[0].ques = that.quesiton_tot[i].option1;
+          that.question[1].ques = that.quesiton_tot[i].option2;
+          that.question[2].ques = that.quesiton_tot[i].option3;
+          that.question[3].ques = that.quesiton_tot[i].option4;
+          if (that.quesiton_tot[i].answer == 'A') {
+            that.question[0].answer = 0;
+          } else if (that.quesiton_tot[i].answer == 'B') {
+            that.question[0].answer = 1;
+          } else if (that.quesiton_tot[i].answer == 'C') {
+            that.question[0].answer = 2;
+          } else if (that.quesiton_tot[i].answer == 'D') {
+            that.question[0].answer = 3;
+          }
+          // console.log(that.question[0].answer)
+          if (that.question[3].ques == null) {
+            that.question[0].ques = '对';
+            that.question[1].ques = '错';
+            that.question[2].ques = '';
+            that.question[3].ques = '';
+          }
+          if (res.data.data[i].question_type == 1) {
+            that.type = '单选';
+          } else if (res.data.data[i].question_type == 2) {
+            that.type = '多选';
+          } else {
+            that.type = '判断';
+          }
         } });
 
+
     },
-    shoucang: function shoucang() {
-      var i = this.qus;
-      if (this.shoucang1 == true) {
-        this.shoucang1 = false;
-      } else this.shoucang1 = true;
-      if (this.shoucang1 == true) {
-        uni.request({
-          url: 'http://jiakao.maiwd.cn/api/user_question_collect/collect',
-          method: "POST",
-          data: {
-            token: '465456ugi',
-            question_id: this.quesiton_tot[i].id },
-
-          success: function success(res) {
-            // console.log('4')
-          } });
-
-      } else {
-        uni.request({
-          url: 'http://jiakao.maiwd.cn/api/user_question_collect/cancel_collect',
-          method: "POST",
-          data: {
-            token: '465456ugi',
-            question_id: this.quesiton_tot[i].id },
-
-          success: function success(res) {
-            // console.log('5')
-          } });
-
-      }
+    remind_change1: function remind_change1() {
+      that.remind_change = false;
     },
     change: function change() {
       this.none = this.bgc;
@@ -549,81 +534,19 @@ var _default =
       uni.switchTab({
         url: '/pages/index/index' });
 
-    },
-    countTime: function countTime() {
-      //获取当前时间  
-      var date = new Date();
-      var now = date.getTime();
-      var leftTime = this.time - now;
-      if (leftTime <= 0) {
-        this.countdown_time = "已结束";
-        return;
-      }
-      var d, h, m, s;
-      if (leftTime >= 0) {
-        // d = Math.floor(leftTime/1000/60/60/24); 
-        h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
-        m = Math.floor(leftTime / 1000 / 60 % 60);
-        s = Math.floor(leftTime / 1000 % 60);
-      }
-      //将倒计时赋值到view中  
-      this.countdown_time = "\u5012\u8BA1\u65F6".concat(m, "\u5206").concat(s, "\u79D2");
-      //递归每秒调用countTime方法，显示动态时间效果  
-      var timers = setTimeout(this.countTime, 1000);
     } },
 
-
-  mounted: function mounted() {
-    this.countTime();
-  },
-  onLoad: function onLoad() {var _this = this;
-    var that = this;
+  onLoad: function onLoad() {
+    that = this;
     // console.log(that.question[0].id);
-    var date = new Date();
-    var now = date.getTime();
-    that.time = now + 2700000;
-    uni.request({
-      url: 'http://jiakao.maiwd.cn/api/question/random_ten',
-      method: "POST",
-      data: {
-        token: '465456ugi',
-        eq_car_type: 1,
-        eq_subject: 1,
-        eq_question_type: that.eq_question_type,
-        limit: 60 },
-
-      success: function success(res) {
-        var i = _this.qus;
-        that.quesiton_tot = res.data.data;
-        that.topic = that.quesiton_tot[i].question_content;
-        // console.log(JSON.stringify(that.quesiton_tot[i]))
-        that.question[0].ques = that.quesiton_tot[i].option1;
-        that.question[1].ques = that.quesiton_tot[i].option2;
-        that.question[2].ques = that.quesiton_tot[i].option3;
-        that.question[3].ques = that.quesiton_tot[i].option4;
-        if (that.question[3].ques == null) {
-          that.question[0].ques = '对';
-          that.question[1].ques = '错';
-          that.question[2].ques = '';
-          that.question[3].ques = '';
-        }
-        if (res.data.data[i].question_type == 1) {
-          that.type = '单选';
-        } else if (res.data.data[i].question_type == 2) {
-          that.type = '多选';
-        } else {
-          that.type = '判断';
-        }
-      } });
-
-
+    that.request_1();
   },
   data: function data() {
     return {
-      shoucang1: false,
-      danxuan: 0,
-      countdown_time: '倒计时00分00秒',
-      time: '',
+      index_1: '',
+      answer_or: '',
+      answer: '',
+      remind_change: false,
       eq_question_type: 1,
       quesion_1: '',
       question_tot: '',
@@ -642,15 +565,19 @@ var _default =
       jinnang: true,
       box: false,
       quesiton_now: 1,
-      quesiton_total: '/100',
+      quesiton_total: '/10',
       question: [{
-        ques: '' },
+        ques: '',
+        answer: '' },
       {
-        ques: '' },
+        ques: '',
+        answer: '' },
       {
-        ques: '' },
+        ques: '',
+        answer: '' },
       {
-        ques: '' }] };
+        ques: '',
+        answer: '' }] };
 
 
   } };exports.default = _default;

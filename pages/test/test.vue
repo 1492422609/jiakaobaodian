@@ -1,62 +1,114 @@
 <template>
-	<view>
-		<view class="">
-			{{countdown_time}}
-		</view>
-	</view>
+        <view>
+                <view v-for="(item,i) in lists" :key="i">
+                        <view><view :class="['aaa', type == 1 ? 'aaa' : type == 2 ? 'active' : 'classB']" @click="dianwo(item)">{{item.op1}}</view></view>
+                        <view><view :class="['aaa', type1 == 1 ? 'aaa' : type1 == 2 ? 'active' : 'classB']" @click="dianwo1(item)">{{item.op2}}</view></view>
+                        <view><view :class="['aaa', type2 == 1 ? 'aaa' : type2 == 2 ? 'active' : 'classB']" @click="dianwo2(item)">{{item.op3}}</view></view>
+                        <view><view :class="['aaa', type3 == 1 ? 'aaa' : type3 == 2 ? 'active' : 'classB']" @click="dianwo3(item)">{{item.op4}}</view></view>
+                </view>
+        </view>
+        
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				countdown_time: '倒计时00分00秒',
-				time:''
-			}
-		},
-		mounted(){
-			this.countTime()
-		},
-		onLoad(){
-			var date = new Date();
-			var now = date.getTime();
-			this.time=now+2700000
-		},
-		methods: {
-		
-			countTime() {
-				//获取当前时间  
-				var date = new Date();
-				var now = date.getTime();
-				var leftTime = this.time - now;
-				if (leftTime <= 0) {
-					this.countdown_time = "已结束"
-					return
-				}
-				var d, h, m, s;
-				if (leftTime >= 0) {
-					  // d = Math.floor(leftTime/1000/60/60/24); 
-					h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
-					m = Math.floor(leftTime / 1000 / 60 % 60);
-					s = Math.floor(leftTime / 1000 % 60);
-				}
-				//将倒计时赋值到view中  
-				this.countdown_time = `倒计时${m}分${s}秒`
-				//递归每秒调用countTime方法，显示动态时间效果  
-				var timers = setTimeout(this.countTime, 1000);
-			},
-		
-		},
-	}
+export default {
+        data() {
+                return {
+                        type: 1,
+                        type1: 1,
+                        type2: 1,
+                        type3: 1,
+                        
+                        currentIndex: 0,
+                        lists: [
+                                {
+                                        op1: 'A',
+                                        op2: 'B',
+                                        op3: 'C',
+                                        op4: 'D',
+                                        answer: 'B'
+                                }
+                        ]
+                };
+        },
+
+        methods: {
+                dianwo(e) {
+                        if(e.op1===e.answer){
+                                this.type=2
+                                this.type1=1
+                                this.type2=1
+                                this.type3=1
+                        }else{
+                                this.type=3
+                                this.type1=1
+                                this.type2=1
+                                this.type3=1
+                        }
+                },
+                dianwo1(e){
+                        if(e.op2===e.answer){
+                                this.type1=2
+                                this.type=1
+                                this.type2=1
+                                this.type3=1
+                        }else{
+                                this.type1=3
+                                this.type=1
+                                this.type2=1
+                                this.type3=1
+                        }
+                },
+                dianwo2(e){
+                        if(e.op3===e.answer){
+                                this.type2=2
+                                this.type=1
+                                this.type1=1
+                                this.type3=1
+                        }else{
+                                this.type2=3
+                                this.type=1
+                                this.type1=1
+                                this.type3=1
+                        }
+                },
+                dianwo3(e){
+                        if(e.op3===e.answer){
+                                this.type3=2
+                                this.type=1
+                                this.type1=1
+                                this.type2=1
+                        }else{
+                                this.type3=3
+                                this.type=1
+                                this.type1=1
+                                this.type2=1
+                        }
+                }
+                        
+        }
+};
 </script>
 
-<style lang="scss">
-	/deep/ .uni-searchbar {
-		background-color: rgb(79, 191, 141);
-	}
+<style lang="scss" scoped>
+page {
+        background: #f2f3f6;
+}
 
-	/deep/ .uni-searchbar__cancel {
-		color: #fff;
-	}
+.aaa {
+        background: red;
+        width: 100%;
+        height: 50rpx;
+        margin-top: 10rpx;
+}
+.calssA {
+        background-color: blue;
+}
+.active {
+        background-color: black;
+}
+
+.classB {
+        background-color: yellow;
+}
 </style>
-

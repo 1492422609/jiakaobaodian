@@ -23,8 +23,14 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/collection/collection",
-          "pathName": "pages/collection/collection",
+          "name": "pages/monikaoshi/monikaoshi",
+          "pathName": "pages/monikaoshi/monikaoshi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test2/test2",
+          "pathName": "pages/test2/test2",
           "scene": null
         }
       ]

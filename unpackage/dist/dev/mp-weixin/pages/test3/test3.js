@@ -140,13 +140,21 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
 var _default =
 {
+  onLoad: function onLoad() {
+    this.arr = this.arr.concat(this.arr1);
+    console.log(this.arr.concat(this.arr1));
+  },
   data: function data() {
     return {
+      arr: ['e', 'w'],
+      arr1: ['d', 'd'],
       items: [{
         name: '苹果',
-        price: '5$' },
+        price: '5$',
+        index: '0' },
 
       {
         name: '香蕉',
@@ -177,6 +185,7 @@ var _default =
       console.log(index);
       //将点击的元素的索引赋值给bian变量
       this.isactive = index;
+
     } } };exports.default = _default;
 
 /***/ }),

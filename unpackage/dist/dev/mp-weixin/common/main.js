@@ -98,14 +98,19 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
+  globalData: {
+    token1: '58d7014b-16d0-48c4-b959-e71e0ae17c7d',
+    car_type: '1',
+    subject: '1' },
+
   onLaunch: function onLaunch() {
-    console.log('App Launch');
+    // console.log('App Launch')
   },
   onShow: function onShow() {
-    console.log('App Show');
+    // console.log('App Show')
   },
   onHide: function onHide() {
-    console.log('App Hide');
+    // console.log('App Hide')
   } };exports.default = _default;
 
 /***/ }),

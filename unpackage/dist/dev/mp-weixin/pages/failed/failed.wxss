@@ -41,7 +41,7 @@
 		font-size: 40rpx;
 		padding-top: 25rpx;
 }
-.box{
+.box1{
 		width: 90%;
 		height: 500rpx;
 		background-color: white;

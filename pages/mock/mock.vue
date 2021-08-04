@@ -19,38 +19,35 @@
 	    	</view>
 	    	<view class="row">
 	    		<view class="row_1">
-	    			考试车型
+	    		    考试标准
 	    		</view>
 	    		<view class="row_2">
-	    			<view style="margin-left: 20rpx;">汽车C1/C2/C3</view>
+	    			<view style="margin-left: 20rpx;">45分钟，100题</view>
 	    		</view>
 	    	</view>
 	    	<view class="row">
 	    		<view class="row_1">
-	    			考试车型
+	    			合格标准
 	    		</view>
 	    		<view class="row_2">
-	    			<view style="margin-left: 20rpx;">汽车C1/C2/C3</view>
+	    			<view style="margin-left: 20rpx;">90及格（满分100分）</view>
 	    		</view>
 	    	</view>
 	    	<view class="row">
 	    		<view class="row_1">
-	    			考试车型
+	    			出题规则
 	    		</view>
 	    		<view class="row_2">
-	    			<view style="margin-left: 20rpx;">汽车C1/C2/C3</view>
+	    			<view style="margin-left: 20rpx;">根据公安部规定出题规则</view>
 	    		</view>
 	    	</view>
 	    </view>
-		<view class="middle2">
-			<navigator url="../library/library">
+		<view class="middle2" @click="test">
+			<navigator url="../monikaoshi/monikaoshi">
 				<view class="test1">
 					模拟考试
 				</view>
 			</navigator>
-			<view class="test2">
-				考场模拟
-			</view>
 	    </view>
 	    <view class="footer">
 	    	<view class="footer_1">
@@ -68,7 +65,23 @@
 			}
 		},
 		methods: {
-			
+			test(){
+				uni.request({
+					url: 'http://jiakao.maiwd.cn/api/mock/add',
+					method: "POST",
+					header: {
+						'content-type': 'application/json' ,//自定义请求头信息
+						"token": getApp().globalData.token1,
+					},
+					data: {
+						car_type: 1,
+						subject: 1
+					},
+					success: (res) => {
+						// console.log(JSON.stringify(res.data))
+					}
+				})
+			}
 		}
 	}
 </script>

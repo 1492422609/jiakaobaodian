@@ -279,147 +279,131 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var that = void 0;var _default =
+var that;var _default =
 {
   methods: {
-    cli: function cli(index) {
-      that.index_1 = index;
-      console.log(that.index_1);
+    questio: function questio(e) {
+
+      var i = that.qus;
+      if (that.a[i].answer == '') {
+        that.a[i].answer = e;
+        if (that.a[i].answer == that.a[i].answer1) {
+          that.duiques = that.duiques + 1;
+        } else {
+          that.cuoques = that.cuoques + 1;
+        }
+      }
+
+      console.log(JSON.stringify(that.a[i].answer));
+      console.log(JSON.stringify(that.a[i].answer1));
+      this.zuohua();
+      this.cunchu();
     },
-    questio: function questio(index) {
-      // console.log(index)
-      this.quesiton_now = this.quesiton_now + 1;
-      var that = this;
+
+    quanguan: function quanguan() {
+      if (that.size == true) {
+        that.size = false;
+        that.protect = false;
+      }
+      if (that.box == true) {
+        that.box = false;
+        that.protect = false;
+      }
+    },
+
+    start: function start(e) {
+      this.startData.clientX = e.changedTouches[0].clientX;
+      this.startData.clientY = e.changedTouches[0].clientY;
+    },
+    end: function end(e) {
+      // console.log(e)
+      var subX = e.changedTouches[0].clientX - this.startData.clientX;
+      var subY = e.changedTouches[0].clientY - this.startData.clientY;
+      if (subY > 50 || subY < -50) {
+        console.log('上下滑');
+      } else {
+        if (subX > 100) {
+          console.log('右滑');
+          if (that.qus > 0) {
+            this.youhua();
+          }
+        } else if (subX < -100) {
+          console.log('左滑');
+          this.zuohua();
+        } else {
+          // console.log('无效')
+        }
+      }
+    },
+
+    zuohua: function zuohua() {
       that.qus = that.qus + 1;
       var i = that.qus;
-      // if(index==0){
-      // 	that.answer_or='A'
-      // }else if(index==1){
-      // 	that.answer_or='B'
-      // }else if(index==2){
-      // 	that.answer_or='C'
-      // }else if(index==3){
-      // 	that.answer_or='D'
-      // 	// console.log(that.answer_or)
-      // }
-      if (that.qus > 9) {
-        that.remind_change = true;
-        that.qus = 0;
-        that.quesiton_now = 1;
-        that.eq_question_type = that.eq_question_type + 1;
-        if (that.eq_question_type > 3) {
-          that.eq_question_type = 1;
-        }
-        that.request_1();
+      this.quesiton_now = i + 1;
+      that.topic = that.quesiton_tot[i].question_content;
+      that.question[0].ques = that.quesiton_tot[i].option1;
+      that.question[0].id = 'A';
+      that.question[1].ques = that.quesiton_tot[i].option2;
+      that.question[1].id = 'B';
+      that.question[2].ques = that.quesiton_tot[i].option3;
+      that.question[2].id = 'C';
+      that.question[3].ques = that.quesiton_tot[i].option4;
+      that.question[3].id = 'D';
+      that.a[i].answer1 = that.quesiton_tot[i].answer;
+      if (that.question[3].ques === null) {
+        that.question[0].ques = '对';
+        that.question[0].id = '对';
+        that.question[1].ques = '错';
+        that.question[1].id = '错';
+        that.question[2].ques = '';
+        that.question[3].ques = '';
+        that.type = '判断';
+        // console.log(that.question[0].id)
+      }
+      if (that.quesiton_tot[i].pic_image === null) {
+        that.ima = false;
       } else {
-        // that.topic = that.quesiton_tot[i].question_content
-        // that.question[0].ques = that.quesiton_tot[i].option1
-        // that.question[1].ques = that.quesiton_tot[i].option2
-        // that.question[2].ques = that.quesiton_tot[i].option3
-        // that.question[3].ques = that.quesiton_tot[i].option4
-        // if (that.question[3].ques == null) {
-        // 	that.question[0].ques = '对'
-        // 	that.question[1].ques = '错'
-        // 	that.question[2].ques = ''
-        // 	that.question[3].ques = ''
-        // }
+        that.imag = that.quesiton_tot[i].pic_image;
+        that.ima = true;
       }
 
     },
+    youhua: function youhua() {
+      that.qus = that.qus - 1;
+      var i = that.qus;
+      this.quesiton_now = i + 1;
+      that.topic = that.quesiton_tot[i].question_content;
+      that.question[0].ques = that.quesiton_tot[i].option1;
+      that.question[0].id = 'A';
+      that.question[1].ques = that.quesiton_tot[i].option2;
+      that.question[1].id = 'B';
+      that.question[2].ques = that.quesiton_tot[i].option3;
+      that.question[2].id = 'C';
+      that.question[3].ques = that.quesiton_tot[i].option4;
+      that.question[3].id = 'D';
+      that.a[i].answer1 = that.quesiton_tot[i].answer;
+      if (that.question[3].ques === null) {
+        that.question[0].ques = '对';
+        that.question[0].id = '对';
+        that.question[1].ques = '错';
+        that.question[1].id = '错';
+        that.question[2].ques = '';
+        that.question[3].ques = '';
+        that.type = '判断';
+        // console.log(that.question[0].id)
+      }
+      if (that.quesiton_tot[i].pic_image === null) {
+        that.ima = false;
+      } else {
+        that.imag = that.quesiton_tot[i].pic_image;
+        that.ima = true;
+      }
+    },
+
     font_size5: function font_size5() {
       this.font_size = 50;
+
     },
     font_size4: function font_size4() {
       this.font_size = 45;
@@ -437,79 +421,77 @@ var that = void 0;var _default =
       if (this.box === false) {
         this.box = true;
         this.jinnang = false;
+        this.protect = true;
       } else {
         this.box = false;
         this.jinnang = true;
-      }
-      if (this.jiyi == true) {
-        this.jinnang = false;
+        this.protect = false;
       }
     },
     fons: function fons() {
       if (this.size == false) {
         this.size = true;
         this.jinnang = false;
+        this.protect = true;
       } else {
         this.size = false;
         this.jinnang = true;
+        this.protect = false;
       }
-      if (this.jiyi == true) {
-        this.jinnang = false;
-      }
+
     },
     stop: function stop() {
 
     },
-    request_1: function request_1() {var _this = this;
-      // var that =this
+    cunchu: function cunchu() {
       uni.request({
-        url: 'http://jiakao.maiwd.cn/api/question/random_ten',
+        url: 'http://jiakao.maiwd.cn/api/mock_record/add',
         method: "POST",
+        header: {
+          'content-type': 'application/json', //自定义请求头信息
+          "token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d' },
+
         data: {
-          token: '465456ugi',
-          eq_car_type: 1,
-          eq_subject: 1,
-          eq_question_type: that.eq_question_type },
+          mock_id: 1,
+          user_answer: that.answer_1,
+          question_id: 211 },
 
         success: function success(res) {
-          var i = _this.qus;
-          that.quesiton_tot = res.data.data;
-          that.topic = that.quesiton_tot[i].question_content;
-          console.log(JSON.stringify(that.quesiton_tot[i].answer));
-          that.answer = that.quesiton_tot[i].answer;
-          that.question[0].ques = that.quesiton_tot[i].option1;
-          that.question[1].ques = that.quesiton_tot[i].option2;
-          that.question[2].ques = that.quesiton_tot[i].option3;
-          that.question[3].ques = that.quesiton_tot[i].option4;
-          if (that.quesiton_tot[i].answer == 'A') {
-            that.question[0].answer = 0;
-          } else if (that.quesiton_tot[i].answer == 'B') {
-            that.question[0].answer = 1;
-          } else if (that.quesiton_tot[i].answer == 'C') {
-            that.question[0].answer = 2;
-          } else if (that.quesiton_tot[i].answer == 'D') {
-            that.question[0].answer = 3;
-          }
-          // console.log(that.question[0].answer)
-          if (that.question[3].ques == null) {
-            that.question[0].ques = '对';
-            that.question[1].ques = '错';
-            that.question[2].ques = '';
-            that.question[3].ques = '';
-          }
-          if (res.data.data[i].question_type == 1) {
-            that.type = '单选';
-          } else if (res.data.data[i].question_type == 2) {
-            that.type = '多选';
-          } else {
-            that.type = '判断';
-          }
+          // console.log(JSON.stringify(res.data))
+
         } });
 
-
     },
-    remind_change1: function remind_change1() {
-      that.remind_change = false;
+    shoucang: function shoucang() {
+      var i = this.qus;
+      if (this.shoucang1 == true) {
+        this.shoucang1 = false;
+      } else this.shoucang1 = true;
+      if (this.shoucang1 == true) {
+        uni.request({
+          url: 'http://jiakao.maiwd.cn/api/user_question_collect/collect',
+          method: "POST",
+          data: {
+            token: getApp().globalData.token1,
+            question_id: this.quesiton_tot[i].id },
+
+          success: function success(res) {
+            // console.log('4')
+          } });
+
+      } else {
+        uni.request({
+          url: 'http://jiakao.maiwd.cn/api/user_question_collect/cancel_collect',
+          method: "POST",
+          data: {
+            token: getApp().globalData.token1,
+            question_id: this.quesiton_tot[i].id },
+
+          success: function success(res) {
+            // console.log('5')
+          } });
+
+      }
     },
     change: function change() {
       this.none = this.bgc;
@@ -533,30 +515,183 @@ var that = void 0;var _default =
       uni.switchTab({
         url: '/pages/index/index' });
 
+    },
+    countTime: function countTime() {
+      //获取当前时间  
+      var date = new Date();
+      var now = date.getTime();
+      var leftTime = this.time - now;
+      if (leftTime <= 0) {
+        this.countdown_time = "已结束";
+        return;
+      }
+      var d, h, m, s;
+      if (leftTime >= 0) {
+        // d = Math.floor(leftTime/1000/60/60/24); 
+        h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
+        m = Math.floor(leftTime / 1000 / 60 % 60);
+        s = Math.floor(leftTime / 1000 % 60);
+      }
+      //将倒计时赋值到view中  
+      this.countdown_time = "\u5012\u8BA1\u65F6".concat(m, "\u5206").concat(s, "\u79D2");
+      //递归每秒调用countTime方法，显示动态时间效果  
+      var timers = setTimeout(this.countTime, 1000);
+    },
+
+    danxuan_1: function danxuan_1() {
+
+      uni.request({
+        url: 'http://jiakao.maiwd.cn/api/question/random_ten',
+        method: "POST",
+        header: {
+          'content-type': 'application/json', //自定义请求头信息
+          "token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d' },
+
+        data: {
+          eq_car_type: 1,
+          eq_subject: 1,
+          eq_question_type: 1,
+          limit: 5 },
+
+        success: function success(res) {
+          // console.log(JSON.stringify(res.data))
+          var i = that.qus;
+          that.quesiton_tot = res.data.data;
+          that.topic = that.quesiton_tot[i].question_content;
+          // console.log(JSON.stringify(that.quesiton_tot[i]))
+          that.question[0].ques = that.quesiton_tot[i].option1;
+          that.question[0].id = 'A';
+          that.question[1].ques = that.quesiton_tot[i].option2;
+          that.question[1].id = 'B';
+          that.question[2].ques = that.quesiton_tot[i].option3;
+          that.question[2].id = 'C';
+          that.question[3].ques = that.quesiton_tot[i].option4;
+          that.question[3].id = 'D';
+          that.type = '单选';
+          if (that.quesiton_tot[i].pic_image === null) {
+            that.ima = false;
+          } else {
+            that.imag = that.quesiton_tot[i].pic_image;
+            that.ima = true;
+          }
+          that.fangfa();
+          that.a[i].answer1 = that.quesiton_tot[i].answer;
+          // console.log('eqwewq'+JSON.stringify(that.a))
+          // console.log(JSON.stringify(that.quesiton_tot[i]))
+          // console.log(JSON.stringify(that.question_tot[i]))
+          // console.log(that.quesiton_tot[i].pic_image)
+        } });
+
+
+    },
+    duoxuan_1: function duoxuan_1() {
+      uni.request({
+        url: 'http://jiakao.maiwd.cn/api/question/random_ten',
+        method: "POST",
+        header: {
+          'content-type': 'application/json', //自定义请求头信息
+          "token": '58d7014b-16d0-48c4-b959-e71e0ae17c7d' },
+
+        data: {
+          // token:getApp().globalData.token1,
+          eq_car_type: getApp().globalData.car_type,
+          eq_subject: getApp().globalData.subject,
+          eq_question_type: 3,
+          limit: 40 },
+
+        success: function success(res) {
+          var ddd = res.data.data;
+          that.quesiton_tot = that.quesiton_tot.concat(ddd);
+          // console.log(JSON.stringify(that.quesiton_tot))
+          // console.log(JSON.stringify(res.data.data))
+          // console.log(that.quesiton_tot)
+        } });
+
+
+    },
+
+    returnque: function returnque(i) {
+      // console.log()
+      that.quesiton_now = i + 1;
+      that.qus = i;
+      that.topic = that.quesiton_tot[i].question_content;
+      that.question[0].ques = that.quesiton_tot[i].option1;
+      that.question[0].id = 'A';
+      that.question[1].ques = that.quesiton_tot[i].option2;
+      that.question[1].id = 'B';
+      that.question[2].ques = that.quesiton_tot[i].option3;
+      that.question[2].id = 'C';
+      that.question[3].ques = that.quesiton_tot[i].option4;
+      that.question[3].id = 'D';
+      that.a[i].answer1 = that.quesiton_tot[i].answer;
+      if (that.question[3].ques === null) {
+        that.question[0].ques = '对';
+        that.question[0].id = '对';
+        that.question[1].ques = '错';
+        that.question[1].id = '错';
+        that.question[2].ques = '';
+        that.question[3].ques = '';
+        that.type = '判断';
+        // console.log(that.question[0].id)
+      }
+      if (that.quesiton_tot[i].pic_image === null) {
+        that.ima = false;
+      } else {
+        that.imag = that.quesiton_tot[i].pic_image;
+        that.ima = true;
+      }
+    },
+    fangfa: function fangfa() {
+      for (var i = 0; i < 100; i++) {
+        that.a.push({
+          id: i,
+          answer: '',
+          answer1: '' });
+
+      }
     } },
 
+  mounted: function mounted() {
+    this.countTime();
+  },
   onLoad: function onLoad() {
     that = this;
+    // console.log(getApp().globalData.token1)
     // console.log(that.question[0].id);
-    that.request_1();
+    var date = new Date();
+    var now = date.getTime();
+    that.time = now + 2700000;
+
+    this.danxuan_1();
+    this.duoxuan_1();
   },
   data: function data() {
     return {
-      index_1: '',
-      answer_or: '',
-      answer: '',
-      remind_change: false,
+      startData: {
+        clientX: 0,
+        clientY: 0 },
+
+      a: [],
+      duiques: 0,
+      cuoques: 0,
+      num: [],
+      answer_1: '',
+      qus: 0,
+      ima: false,
+      imag: '',
+      protect: false,
+      shoucang1: false,
+      danxuan: 1,
+      countdown_time: '倒计时00分00秒',
+      time: '',
       eq_question_type: 1,
       quesion_1: '',
-      question_tot: '',
-      qus: 0,
-      jiyi: false,
+      quesiton_tot: [],
       bgc: 'white',
       ccc: '#2C5DFE',
       none: '',
       chan: true,
       pages: 17,
-      // font_size1:30,
       font_size: 35,
       size: false,
       topic: '',
@@ -564,19 +699,19 @@ var that = void 0;var _default =
       jinnang: true,
       box: false,
       quesiton_now: 1,
-      quesiton_total: '/10',
+      quesiton_total: '/100',
       question: [{
         ques: '',
-        answer: '' },
+        id: '' },
       {
         ques: '',
-        answer: '' },
+        id: '' },
       {
         ques: '',
-        answer: '' },
+        id: '' },
       {
         ques: '',
-        answer: '' }] };
+        id: '' }] };
 
 
   } };exports.default = _default;

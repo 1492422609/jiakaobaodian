@@ -280,7 +280,7 @@
 								<view class="pop_bottom_text">
 									货车/A1/B2
 								</view>
-								<label class="radio" :checked="bianhao==1" @click="radio('1')">
+								<label class="radio" :checked="bianhao==1" @click="radio('2')">
 									<radio value="1" /><text></text>
 								</label>
 							</view>
@@ -289,7 +289,7 @@
 								<view class="pop_bottom_text">
 								    客车A1/A3/B1
 								</view>
-								<label class="radio" :checked="bianhao==1" @click="radio('1')">
+								<label class="radio" :checked="bianhao==1" @click="radio('3')">
 									<radio value="1" /><text></text>
 								</label>
 							</view>
@@ -298,7 +298,7 @@
 								<view class="pop_bottom_text">
 								    摩托车
 								</view>
-								<label class="radio" :checked="bianhao==1" @click="radio('1')">
+								<label class="radio" :checked="bianhao==1" @click="radio('4')">
 									<radio value="1" /><text></text>
 								</label>
 							</view>
@@ -366,16 +366,36 @@
 			}
 		},
 		onLoad() {
-    //              // #ifdef APP-PLUS
-				// plus.screen.lockOrientation('landscape-primary');
-				// // #endif
+			uni.request({
+				url: 'http://jiakao.maiwd.cn/addons/third/api/getAuthUrl',
+				method: "POST",
+				header: {
+					'content-type': 'application/json' ,//自定义请求头信息
+					// "token": getApp().globalData.token1,
+				},
+				data: {
+					url:'http://jiakao.maiwd.cn/api/user/third?platform=wechat',
+					platform:'wechat',
+				},
+				success: (res) => {
+					
+					var http1=res.data.data
+					console.log(JSON.stringify(res.data.data))
+					// plus.runtime.openURL(http1)
+				   // window.location.href="https://cn.bing.com/"
+				}
+			})
+			
 		},
 		methods: {
 			radio(e){
 				this.bianhao=e;
-				// this.timer = setTimeout( () => {
-				//     this.pop=false		
-				// }, 300)
+				console.log(this.bianhao)
+				getApp().globalData.car_type = this.bianhao
+				console.log(getApp().globalData.car_type)
+				this.timer = setTimeout( () => {
+				    this.pop=false		
+				}, 300)
 			},
 			pop1(){
 				this.pop=false;
